@@ -5,7 +5,7 @@
       <router-link to="/about">About</router-link> -->
     </div>
     <Menu
-      brandName="Brewery DB"
+      brandName="Brewdog"
       home="Home"
       categories="Our Beers"
       random="Discover"
@@ -24,13 +24,13 @@ export default {
 </script>
 
 <style lang="scss">
-// #app {
-//   font-family: Avenir, Helvetica, Arial, sans-serif;
-//   -webkit-font-smoothing: antialiased;
-//   -moz-osx-font-smoothing: grayscale;
-//   text-align: center;
-//   color: #2c3e50;
-// }
+#app {
+  background-image: url(assets/background.jpg);
+  background-attachment: fixed;
+}
+.nav {
+  position: fixed;
+}
 
 // #nav {
 //   padding: 30px;

@@ -73,9 +73,9 @@ export default {
   flex-wrap: wrap;
 }
 
-.row no-gutters {
-  min-width: 230px;
-  max-width: 230px;
+.no-gutters {
+  min-width: 368px;
+  max-width: 368px;
 }
 
 .col-md-6 {
