@@ -2,19 +2,30 @@
   <div class="home">
     <h1>hi</h1>
     <div class="beersContainer">
-      <!-- <div v-for="beer in indexBeers" :key="beer.id" class="beer">{{ beer.name }}</div> -->
       <b-card
+        no-body
         v-for="beer in indexBeers"
         :key="beer.id"
-        :img-src="beer.image_url"
-        img-alt="Image"
-        img-top
-        tag="beer"
-        style="max-width: 20rem;"
-        class="mb-2"
+        class="overflow-hidden"
+        style="max-width: 540px;"
       >
-        <b-card-text>{{ beer.description }}</b-card-text>
-        <b-button href="#" variant="primary">Details</b-button>
+        <b-row no-gutters>
+          <b-col md="6">
+            <b-card-img
+              :src="beer.image_url"
+              img-alt="Image"
+              class="rounded-0"
+            ></b-card-img>
+          </b-col>
+          <b-col md="6">
+            <b-card-body :title="beer.name">
+              <b-card-text>
+                {{ beer.tagline }}
+              </b-card-text>
+              <b-button href="#" variant="primary">Details</b-button>
+            </b-card-body>
+          </b-col>
+        </b-row>
       </b-card>
     </div>
 
@@ -45,7 +56,32 @@ export default {
 </script>
 
 <style lang="scss">
-.card-img-top {
+.card-img {
   max-width: 80px;
+  min-height: 40%;
+}
+
+.overflow-hidden {
+  max-width: 540px;
+  max-height: 407px;
+  min-height: 70vh;
+}
+
+.beersContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.row no-gutters {
+  min-width: 230px;
+  max-width: 230px;
+}
+
+.col-md-6 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
 }
 </style>
