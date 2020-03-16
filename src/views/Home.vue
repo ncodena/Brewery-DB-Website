@@ -28,12 +28,12 @@
             </b-card-body>
           </b-col>
         </b-row>
-      </b-card>
-      <div class="middle">
+        <div class="middle">
         <div class="text">
-          <h1>hiiiiiiiiiiiiiiii</h1>
+          <h3>{{ beer.ingredients}}</h3>
         </div>
     </div>
+      </b-card>
     </div>
 
     <!-- <img alt="Vue logo" src="../assets/logo.png" />
@@ -73,7 +73,7 @@ export default {
 }
 
 .overflow-hidden:hover .middle {
-  opacity: 5;
+  opacity: 1;
 }
 
 .overflow-hidden {
@@ -93,7 +93,7 @@ export default {
   min-width: 368px;
   max-width: 368px;
   opacity: 1;
-  transition: .10s ease;
+  transition: 1.1s ease;
   backface-visibility: hidden;
 }
 
@@ -108,12 +108,14 @@ export default {
   opacity: 0;
   position: absolute;
   transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%)
+  -ms-transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
 }
 .text {
-  background-color: #4CAF50;
-  color: white;
-  font-size: 16px;
-  padding: 16px 32px;
+  // background-color: #4CAF50;
+  // color: white;
+  // font-size: 16px;
+  // padding: 16px 32px;
 }
 </style>
