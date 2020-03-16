@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <h1>hi</h1>
     <div class="beersContainer">
       <b-card
         no-body
@@ -30,6 +29,11 @@
           </b-col>
         </b-row>
       </b-card>
+      <div class="middle">
+        <div class="text">
+          <h1>hiiiiiiiiiiiiiiii</h1>
+        </div>
+    </div>
     </div>
 
     <!-- <img alt="Vue logo" src="../assets/logo.png" />
@@ -64,12 +68,19 @@ export default {
   min-height: 40%;
 }
 
+.overflow-hidden:hover .no-gutters {
+  opacity: 0.2;
+}
+
+.overflow-hidden:hover .middle {
+  opacity: 5;
+}
+
 .overflow-hidden {
   max-width: 540px;
   max-height: 407px;
   min-height: 70vh;
   margin: 20px 20px 20px 20px;
-  background-color: blue;
 }
 
 .beersContainer {
@@ -81,6 +92,9 @@ export default {
 .no-gutters {
   min-width: 368px;
   max-width: 368px;
+  opacity: 1;
+  transition: .10s ease;
+  backface-visibility: hidden;
 }
 
 .col-md-6 {
@@ -88,5 +102,18 @@ export default {
   justify-content: center;
   align-items: center;
   min-height: 70vh;
+}
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%)
+}
+.text {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  padding: 16px 32px;
 }
 </style>

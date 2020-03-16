@@ -30,11 +30,11 @@ export default {
 #app {
   background-image: url(assets/background.jpg);
   background-attachment: fixed;
-  font-family: 'Oswald';
+  font-family: "Oswald";
 }
-.nav {
-  position: fixed;
-}
+// .nav {
+//   position: fixed;
+// }
 
 // #nav {
 //   padding: 30px;
