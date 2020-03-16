@@ -27,7 +27,6 @@ export default class HelloWorld extends Vue {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-
 // #nav {
 //   padding: 30px;
 

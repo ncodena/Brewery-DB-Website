@@ -11,18 +11,21 @@
       >
         <b-row no-gutters>
           <b-col md="6">
-            <b-card-img
+            <b-card-img v-if="beer.image_url"
               :src="beer.image_url"
-              img-alt="Image"
-              class="rounded-0"
-            ></b-card-img>
+              img-alt="image"
+              class="rounded-0"/>
+            <b-card-img v-else
+              src="assets/beer.png"
+              img-alt="no_image"
+              class="rounded-0"></b-card-img>
           </b-col>
           <b-col md="6">
             <b-card-body :title="beer.name">
               <b-card-text>
                 {{ beer.tagline }}
               </b-card-text>
-              <b-button href="#" variant="primary">Details</b-button>
+              <b-button href="#">Details</b-button>
             </b-card-body>
           </b-col>
         </b-row>
@@ -65,6 +68,8 @@ export default {
   max-width: 540px;
   max-height: 407px;
   min-height: 70vh;
+  margin: 20px 20px 20px 20px;
+  background-color: blue;
 }
 
 .beersContainer {

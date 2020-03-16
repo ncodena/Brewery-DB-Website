@@ -1,11 +1,11 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <!-- <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link> -->
     </div>
     <Menu
-      brandName="Brewdog"
+      brandName="BREWDOG"
       home="Home"
       categories="Our Beers"
       random="Discover"
@@ -24,9 +24,13 @@ export default {
 </script>
 
 <style lang="scss">
+
+@import url('https://fonts.googleapis.com/css?family=Oswald&display=swap');
+
 #app {
   background-image: url(assets/background.jpg);
   background-attachment: fixed;
+  font-family: 'Oswald';
 }
 .nav {
   position: fixed;
