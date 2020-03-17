@@ -21,16 +21,17 @@
           </b-col>
           <b-col md="6">
             <b-card-body :title="beer.name">
-              <b-card-text>
-                {{ beer.tagline }}
-              </b-card-text>
-              <b-button href="#">Details</b-button>
+              
             </b-card-body>
           </b-col>
         </b-row>
         <div class="middle">
         <div class="text">
-          <h3>{{ beer.ingredients}}</h3>
+          <b-card-text>
+                {{ beer.tagline }}
+              </b-card-text>
+          <h3>{{beer.ingredients.yeast}}</h3>
+          <b-button href="#">Details</b-button>
         </div>
     </div>
       </b-card>
@@ -113,9 +114,9 @@ export default {
   left: 50%;
 }
 .text {
-  // background-color: #4CAF50;
-  // color: white;
-  // font-size: 16px;
-  // padding: 16px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 </style>
