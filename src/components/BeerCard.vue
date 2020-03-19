@@ -30,7 +30,9 @@
           {{ beer.tagline }}
         </b-card-text>
         <h3>{{ beer.ingredients.yeast }}</h3>
-        <b-button href="#">Details</b-button>
+        <router-link v-bind:to="'/beers/' + beer.name" :key="beer.id"
+          ><b-button>Details</b-button></router-link
+        >
       </div>
     </div>
   </b-card>
