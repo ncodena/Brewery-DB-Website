@@ -30,8 +30,7 @@
           {{ beer.tagline }}
         </b-card-text>
         <h3>{{ beer.ingredients.yeast }}</h3>
-        <router-link v-bind:to="'/beers/' + beer.name" :key="beer.id"
-          ><b-button>Details</b-button></router-link
+        <router-link :to="'/beers/' + beer.name"><b-button>Details</b-button></router-link
         >
       </div>
     </div>
@@ -48,7 +47,10 @@ export default {
   name: "Home",
   props: {
     beer: Object
-  }
+  },
+//   created(){
+//     console.log(this.beer)
+//   }
 };
 </script>
 

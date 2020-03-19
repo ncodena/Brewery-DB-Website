@@ -7,7 +7,7 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
-    name: "Home",
+    name: "",
     component: Home
   },
   // {
@@ -19,9 +19,10 @@ const routes = [
   {
     path: "/beers/:name",
     name: "BeerDetails",
+    props: true,
     component: () =>
       import(/* webpackChunkName: "BeerDetails" */ "../views/BeerDetails.vue")
-  }
+  },
 ];
 
 const router = new VueRouter({

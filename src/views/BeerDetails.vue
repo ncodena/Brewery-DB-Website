@@ -6,19 +6,21 @@
 
 <script>
 // @ is an alias to /src
-
+import { mapGetters, mapActions } from "vuex";
 export default {
   name: "BeerDetails",
-  props: {
-    beer: Object
+  // props: {
+  //   beer: Object
+  // },
+  methods: {
+    ...mapActions(["fetchBeer"])
+  },
+  computed: mapGetters(["detailsBeer"]),
+  created() {
+    // const name = this.beer;
+
+    // this.fetchBeer(name);
   }
-  // methods: {
-  //   ...mapActions(["fetchBeers"])
-  // },
-  // computed: mapGetters(["indexBeers"]),
-  // created() {
-  //   this.fetchBeers();
-  // },
   // components: {
   //   BeerCard
   // }
