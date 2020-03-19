@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div class="beersContainer">
-        <beer-card v-for="beer in indexBeers" :beer="beer" :key="beer.id"/>
+      <beer-card v-for="beer in indexBeers" :beer="beer" :key="beer.id" />
     </div>
     <!-- <img alt="Vue logo" src="../assets/logo.png" />
     <HelloWorld msg="Welcome to Your Vue.js App" /> -->
@@ -27,7 +27,7 @@ export default {
     this.fetchBeers();
   },
   components: {
-    BeerCard,
+    BeerCard
   }
 };
 </script>
@@ -68,7 +68,7 @@ export default {
   min-height: 70vh;
 }
 .middle {
-  transition: .5s ease;
+  transition: 0.5s ease;
   opacity: 0;
   position: absolute;
   transform: translate(-50%, -50%);

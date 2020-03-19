@@ -1,39 +1,42 @@
 <template>
-      <b-card
-        no-body
-        :key="beer.id"
-        class="overflow-hidden"
-        style="max-width: 540px;"
-      >
-        <b-row no-gutters>
-          <b-col md="6">
-            <b-card-img v-if="beer.image_url"
-              :src="beer.image_url"
-              img-alt="image"
-              class="rounded-0"/>
-            <b-card-img v-else
-              src="assets/beer.png"
-              img-alt="no_image"
-              class="rounded-0"></b-card-img>
-          </b-col>
-          <b-col md="6">
-            <b-card-body :title="beer.name">
-            </b-card-body>
-          </b-col>
-        </b-row>
-        <div class="middle">
-        <div class="text">
-          <b-card-text>
-                {{ beer.tagline }}
-              </b-card-text>
-          <h3>{{beer.ingredients.yeast}}</h3>
-          <b-button href="#">Details</b-button>
-        </div>
+  <b-card
+    no-body
+    :key="beer.id"
+    class="overflow-hidden"
+    style="max-width: 540px;"
+  >
+    <b-row no-gutters>
+      <b-col md="6">
+        <b-card-img
+          v-if="beer.image_url"
+          :src="beer.image_url"
+          img-alt="image"
+          class="rounded-0"
+        />
+        <b-card-img
+          v-else
+          src="assets/beer.png"
+          img-alt="no_image"
+          class="rounded-0"
+        ></b-card-img>
+      </b-col>
+      <b-col md="6">
+        <b-card-body :title="beer.name"> </b-card-body>
+      </b-col>
+    </b-row>
+    <div class="middle">
+      <div class="text">
+        <b-card-text>
+          {{ beer.tagline }}
+        </b-card-text>
+        <h3>{{ beer.ingredients.yeast }}</h3>
+        <b-button href="#">Details</b-button>
+      </div>
     </div>
-      </b-card>
-    <!-- <img alt="Vue logo" src="../assets/logo.png" />
+  </b-card>
+  <!-- <img alt="Vue logo" src="../assets/logo.png" />
     <HelloWorld msg="Welcome to Your Vue.js App" /> -->
-    <!-- <Menu brandName="Brewery DB" home="Home" categories="Our Beers" random="Discover"/> -->
+  <!-- <Menu brandName="Brewery DB" home="Home" categories="Our Beers" random="Discover"/> -->
 </template>
 
 <script>
@@ -43,7 +46,7 @@ export default {
   name: "Home",
   props: {
     beer: Object
-  },
+  }
 };
 </script>
 
@@ -79,7 +82,7 @@ export default {
   min-height: 70vh;
 }
 .middle {
-  transition: .5s ease;
+  transition: 0.5s ease;
   opacity: 0;
   position: absolute;
   transform: translate(-50%, -50%);
