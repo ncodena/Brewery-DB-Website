@@ -14,7 +14,8 @@ export default new Vuex.Store({
     detailsBeer: state => state.beer,
   },
   mutations: {
-    setBeers: (state, beers) => (state.beers = beers)
+    setBeers: (state, beers) => (state.beers = beers),
+    detailsBeer: (state, beer) => (state.beer = beer)
   },
   actions: {
     async fetchBeers({ commit }) {
@@ -23,11 +24,14 @@ export default new Vuex.Store({
       );
       commit("setBeers", response.data);
     },
-    async fetchBeer(name, commit) {
-      const response = await axios.get(
-        `https://api.punkapi.com/v2/beers?beer_name=${name}`
-      );
-      console.log(response.data);
+    async fetchBeer(commit, name)  {
+    
+      console.log(name)
+
+      const response = await axios.get(`https://api.punkapi.com/v2/beers?beer_name=${name}`).then(response => response)
+
+      console.log(response)
+
     }
   },
   modules: {}

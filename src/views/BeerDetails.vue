@@ -17,9 +17,9 @@ export default {
   },
   computed: mapGetters(["detailsBeer"]),
   created() {
-    // const name = this.beer;
-
-    // this.fetchBeer(name);
+    const name = window.location.href.split("/").pop();
+    console.log(name)
+    this.fetchBeer(name, null);
   }
   // components: {
   //   BeerCard
