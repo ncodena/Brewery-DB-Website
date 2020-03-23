@@ -1,6 +1,10 @@
 <template>
   <div class="beerDetails">
     <h1>This is the details beer page</h1>
+    <div v-for="beer in detailsBeer" :beer="beer" :key="beer.id">
+      <h3>{{beer.name}}</h3>
+
+    </div>
   </div>
 </template>
 
@@ -19,7 +23,7 @@ export default {
   created() {
     const name = window.location.href.split("/").pop();
     console.log(name);
-    this.fetchBeer(name, null);
+    this.fetchBeer(name);
   }
   // components: {
   //   BeerCard
