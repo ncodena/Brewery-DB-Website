@@ -1,6 +1,6 @@
 <template>
   <div :key="beer.id">
-    
+    <h3>{{ beer.name }}</h3>
   </div>
 </template>
 
@@ -8,7 +8,7 @@
 // @ is an alias to /src
 // import Menu from "@/components/Menu.vue";
 export default {
-  name: "BeerDetails",
+  name: "Details",
   props: {
     beer: Object
   }
@@ -18,5 +18,4 @@ export default {
 };
 </script>
 
-<style lang="scss">
-</style>
+<style lang="scss"></style>
