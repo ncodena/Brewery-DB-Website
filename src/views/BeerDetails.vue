@@ -1,6 +1,5 @@
 <template>
   <div class="beerDetails">
-    <h1>This is the details beer page</h1>
     <Details v-for="beer in detailsBeer" :beer="beer" :key="beer.id" />
   </div>
 </template>
