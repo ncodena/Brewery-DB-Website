@@ -8,7 +8,8 @@
       brandName="BREWDOG"
       home="Home"
       categories="Our Beers"
-      random="Discover"/>
+      random="Discover"
+    />
     <router-view />
   </div>
 </template>

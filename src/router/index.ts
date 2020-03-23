@@ -22,7 +22,7 @@ const routes = [
     props: true,
     component: () =>
       import(/* webpackChunkName: "BeerDetails" */ "../views/BeerDetails.vue")
-  },
+  }
 ];
 
 const router = new VueRouter({

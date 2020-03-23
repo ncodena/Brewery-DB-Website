@@ -18,7 +18,7 @@ export default {
   computed: mapGetters(["detailsBeer"]),
   created() {
     const name = window.location.href.split("/").pop();
-    console.log(name)
+    console.log(name);
     this.fetchBeer(name, null);
   }
   // components: {
