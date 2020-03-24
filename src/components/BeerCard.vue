@@ -30,7 +30,8 @@
           {{ beer.tagline }}
         </b-card-text>
         <h3>{{ beer.ingredients.yeast }}</h3>
-        <router-link :to="'/beers/' + beer.name" exact><b-button>Details</b-button></router-link
+        <router-link :to="'/beers/' + beer.name" exact
+          ><b-button>Details</b-button></router-link
         >
       </div>
     </div>
@@ -47,10 +48,10 @@ export default {
   name: "Home",
   props: {
     beer: Object
-  },
-//   created(){
-//     console.log(this.beer)
-//   }
+  }
+  //   created(){
+  //     console.log(this.beer)
+  //   }
 };
 </script>
 
