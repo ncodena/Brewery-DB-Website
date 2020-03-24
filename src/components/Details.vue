@@ -42,31 +42,40 @@
       <div class="details">
         <h4>MALTS</h4>
         <div class="wrap-features">
-          <span v-for="malt in beer.ingredients.malt" :malt="malt" :key="malt.name">
+          <span
+            v-for="malt in beer.ingredients.malt"
+            :malt="malt"
+            :key="malt.name"
+          >
             <p class="feature">{{ malt.name }}</p>
           </span>
         </div>
       </div>
       <div class="details">
         <h4>HOPS</h4>
-          <div class="wrap-features">
-            <span class="" v-for="hop in beer.ingredients.hops" :hop="hop" :key="hop.name">
-              <p class="feature">{{ hop.name }}</p>
-            </span>
-          </div>
+        <div class="wrap-features">
+          <span
+            class=""
+            v-for="hop in beer.ingredients.hops"
+            :hop="hop"
+            :key="hop.name"
+          >
+            <p class="feature">{{ hop.name }}</p>
+          </span>
+        </div>
       </div>
     </section>
 
     <section class="boxes">
       <div class="box">
         <i class="fas fa-utensils fa-2x"></i>
-        <h3>Food Pairing</h3>
-        <p>{{beer.food_pairing}}</p>
+        <h4>Food Pairing</h4>
+        <p>{{ beer.food_pairing }}</p>
       </div>
       <div class="box">
         <i class="fas fa-comment fa-2x"></i>
-        <h3>Brewer Tip</h3>
-        <p>{{beer.brewers_tips}}</p>
+        <h4>Brewer Tip</h4>
+        <p>{{ beer.brewers_tips }}</p>
       </div>
     </section>
 
@@ -176,19 +185,18 @@ img {
   flex-wrap: wrap;
   justify-content: center;
 }
- // Boxes
-  .boxes {
-    display: grid;
-    grid-gap: 20px;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)) ;
-  }
-  .box {
-    background: white;
-    text-align: center;
-    padding: 1.5rem 2rem;
-    box-shadow: gray;
-  }
-
+// Boxes
+.boxes {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+}
+.box {
+  background: white;
+  text-align: center;
+  padding: 1.5rem 2rem;
+  box-shadow: gray;
+}
 
 // Media Queries
 @media (max-width: 700px) {
