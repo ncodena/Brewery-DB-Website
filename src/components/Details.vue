@@ -10,7 +10,7 @@
       <div class="imageContainer">
         <img v-if="beer.image_url" :src="beer.image_url" img-alt="image" />
       </div>
-      <div>
+      <div class="description">
         <h4>First Brewed: {{ beer.first_brewed }}</h4>
         <p class="info">{{ beer.description }}</p>
       </div>
@@ -39,19 +39,34 @@
     </section>
 
     <section class="sheet">
-      <div class="malts">
+      <div class="details">
         <h4>MALTS</h4>
-        <div class="" v-for="malt in beer.ingredients.malt" :malt="malt" :key="malt.name">
-          <p>{{ malt.name }}</p>
+        <div class="wrap-features">
+          <span v-for="malt in beer.ingredients.malt" :malt="malt" :key="malt.name">
+            <p class="feature">{{ malt.name }}</p>
+          </span>
         </div>
       </div>
-      <div class="hops">
+      <div class="details">
         <h4>HOPS</h4>
-        <div class="" v-for="hop in beer.ingredients.hops" :hop="hop" :key="hop.name">
-          <div >{{ hop.name }}</div>
-          <div >{{ hop.add }}</div>
-          <div >{{ hop.attribute }}</div>
-        </div>
+          <div class="wrap-features">
+            <span class="" v-for="hop in beer.ingredients.hops" :hop="hop" :key="hop.name">
+              <p class="feature">{{ hop.name }}</p>
+            </span>
+          </div>
+      </div>
+    </section>
+
+    <section class="boxes">
+      <div class="box">
+        <i class="fas fa-utensils fa-2x"></i>
+        <h3>Food Pairing</h3>
+        <p>{{beer.food_pairing}}</p>
+      </div>
+      <div class="box">
+        <i class="fas fa-comment fa-2x"></i>
+        <h3>Brewer Tip</h3>
+        <p>{{beer.brewers_tips}}</p>
       </div>
     </section>
 
@@ -100,16 +115,23 @@ export default {
   padding: 3rem;
 }
 .info {
-  font-size: 30px;
+  font-size: 25px;
   text-align: justify;
 }
 .imageContainer {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 img {
   max-width: 130px;
   min-height: 40%;
+}
+.description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .properties {
@@ -137,6 +159,36 @@ img {
   grid-template-columns: repeat(2, 1fr);
   padding: 3rem;
 }
+.details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.feature {
+  border: 4px solid black;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+  margin-right: 8px;
+}
+.wrap-features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+ // Boxes
+  .boxes {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)) ;
+  }
+  .box {
+    background: white;
+    text-align: center;
+    padding: 1.5rem 2rem;
+    box-shadow: gray;
+  }
+
 
 // Media Queries
 @media (max-width: 700px) {
