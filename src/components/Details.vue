@@ -11,7 +11,7 @@
         <img v-if="beer.image_url" :src="beer.image_url" img-alt="image" />
       </div>
       <div>
-        <h6>First Brewed: {{ beer.first_brewed }}</h6>
+        <h4>First Brewed: {{ beer.first_brewed }}</h4>
         <p class="info">{{ beer.description }}</p>
       </div>
     </section>
@@ -35,6 +35,23 @@
       <div class="property">
         <h6>IBU</h6>
         {{ beer.ibu }}
+      </div>
+    </section>
+
+    <section class="sheet">
+      <div class="malts">
+        <h4>MALTS</h4>
+        <div class="" v-for="malt in beer.ingredients.malt" :malt="malt" :key="malt.name">
+          <p>{{ malt.name }}</p>
+        </div>
+      </div>
+      <div class="hops">
+        <h4>HOPS</h4>
+        <div class="" v-for="hop in beer.ingredients.hops" :hop="hop" :key="hop.name">
+          <div >{{ hop.name }}</div>
+          <div >{{ hop.add }}</div>
+          <div >{{ hop.attribute }}</div>
+        </div>
       </div>
     </section>
 
@@ -64,6 +81,7 @@ export default {
 }
 .header {
   display: flex;
+  background: white;
   justify-content: center;
   flex-direction: column;
   align-items: center;
@@ -112,6 +130,14 @@ img {
   width: 7em;
 }
 
+.sheet {
+  background: white;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 3rem;
+}
+
 // Media Queries
 @media (max-width: 700px) {
   .intro {
@@ -126,7 +152,10 @@ img {
     width: 5em;
   }
   .info {
-    font-size: 20px;
+    font-size: 15px;
+  }
+  .sheet {
+    grid-template-columns: 1fr;
   }
 }
 </style>
