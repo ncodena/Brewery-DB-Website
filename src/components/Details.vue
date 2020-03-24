@@ -40,7 +40,8 @@
 
     <section class="sheet">
       <div class="details">
-        <h4>MALTS</h4>
+        <i class="fas fa-leaf fa-2x"></i>
+        <h4>Malts</h4>
         <div class="wrap-features">
           <span
             v-for="malt in beer.ingredients.malt"
@@ -52,7 +53,8 @@
         </div>
       </div>
       <div class="details">
-        <h4>HOPS</h4>
+        <i class="fas fa-seedling fa-2x"></i>
+        <h4>Hops</h4>
         <div class="wrap-features">
           <span
             class=""
