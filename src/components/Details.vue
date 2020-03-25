@@ -18,24 +18,27 @@
 
     <section class="properties">
       <div class="property">
-        <h6>ABV</h6>
-        {{ beer.abv }}
+        <h5 @click="$bvToast.show('abv-toast')">ABV [i]</h5>
+        <h5>{{ beer.abv }}</h5>
+      </div>
+  
+      <div class="property">
+        <h5 @click="$bvToast.show('og-toast')">OG [i]</h5>
+        <h5>{{ beer.target_og }}</h5>
       </div>
 
       <div class="property">
-        <h6>EBC</h6>
-        {{ beer.ebc }}
+        <h5 @click="$bvToast.show('ibu-toast')">IBU [i]</h5>
+        <h5>{{ beer.ibu }}</h5>
       </div>
+    </section>
 
-      <div class="property">
-        <h6>PH</h6>
-        {{ beer.ph }}
-      </div>
+    <section class="toasts">
+        <b-toast id="abv-toast" title="Alcohol by Volume" static> A standard measure of how much alcohol (ethanol) is contained in a given volume of an alcoholic beverage (expressed as a volume percent).</b-toast>
+        <b-toast id="og-toast" title="Original Gravity" static no-auto-hide> Original Gravity (abbreviated OG) is a measure of the fermentable and unfermentable substances in a beer wort before fermentation. Those substances are often the sugars that will be converted to alcohol during the fermentation process.</b-toast>
+        <b-toast id="ibu-toast" title="International Bitterness Units " static no-auto-hide> It is the gauge of beer's bitterness. What IBUs measure are the parts per million of isohumulone found in a beer, the acid found in hops that gives beer its bitter bite.</b-toast>
 
-      <div class="property">
-        <h6>IBU</h6>
-        {{ beer.ibu }}
-      </div>
+
     </section>
 
     <section class="boxes">
@@ -62,7 +65,7 @@
     </section>
 
     <section class="boxes">
-      
+
       <div class="box">
         <i class="fas fa-utensils fa-2x"></i>
         <h4>Food Pairing</h4>
@@ -155,8 +158,8 @@ img {
   flex-direction: column;
   align-items: center;
   clip-path: circle(50%);
-  height: 7em;
-  width: 7em;
+  height: 10em;
+  width: 10em;
 }
 .feature {
   border: 4px solid black;
@@ -164,6 +167,11 @@ img {
   background-color: black;
   color: white;
   margin-right: 8px;
+}
+
+.toasts {
+  display: flex;
+  justify-content: center;
 }
 .wrap-features {
   display: flex;
