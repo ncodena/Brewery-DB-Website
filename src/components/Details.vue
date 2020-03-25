@@ -59,7 +59,10 @@
           </span>
         </div>
       </div>
+    </section>
 
+    <section class="boxes">
+      
       <div class="box">
         <i class="fas fa-utensils fa-2x"></i>
         <h4>Food Pairing</h4>
@@ -73,7 +76,9 @@
         <h4>Brewer Tip</h4>
         <p>{{ beer.brewers_tips }}</p>
       </div>
+
     </section>
+
 
     <!-- Top Container -->
   </div>
@@ -111,7 +116,6 @@ export default {
   display: flex;
   justify-content: center;
 }
-
 .intro {
   background: white;
   display: grid;
@@ -138,14 +142,12 @@ img {
   flex-direction: column;
   justify-content: center;
 }
-
 .properties {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   width: 100%;
 }
-
 .property {
   background-color: white;
   display: flex;
@@ -156,7 +158,6 @@ img {
   height: 7em;
   width: 7em;
 }
-
 .feature {
   border: 4px solid black;
   border-radius: 5px;
@@ -174,7 +175,7 @@ img {
   display: grid;
   grid-gap: 20px;
   margin: 0px 20px;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 .box {
   background: white;
@@ -185,7 +186,6 @@ img {
   padding: 1.5rem 2rem;
   box-shadow: gray;
 }
-
 // Media Queries
 @media (max-width: 700px) {
   .intro {
