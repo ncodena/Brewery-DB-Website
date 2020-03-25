@@ -72,7 +72,10 @@
       <div class="box">
         <i class="fas fa-utensils fa-2x"></i>
         <h4>Food Pairing</h4>
-        <p>{{ beer.food_pairing }}</p>
+        <span v-for="dish in beer.food_pairing" :dish="dish" :key="dish">
+          <p>{{ dish }}</p>
+        </span>
+        
       </div>
       <div class="box">
         <i class="fas fa-comment fa-2x"></i>
@@ -195,6 +198,9 @@ img {
 }
 .box {
   background: white;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
   text-align: center;
   padding: 1.5rem 2rem;
   box-shadow: gray;
