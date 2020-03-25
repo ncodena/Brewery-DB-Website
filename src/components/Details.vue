@@ -59,43 +59,55 @@
 
     <section class="boxes">
       <div class="box">
-        <i class="fas fa-leaf fa-2x"></i>
-        <h4>Malts</h4>
-        <div class="wrap-features">
-          <span
-            v-for="malt in beer.ingredients.malt"
-            :malt="malt"
-            :key="malt.name"
-          >
-            <p class="feature">{{ malt.name }}</p>
-          </span>
+        <div class="text">
+          <i class="fas fa-leaf fa-2x"></i>
+          <h4>Malts</h4>
+          <div class="wrap-features">
+            <span
+              v-for="malt in beer.ingredients.malt"
+              :malt="malt"
+              :key="malt.name"
+            >
+              <p class="feature">{{ malt.name }}</p>
+            </span>
+          </div>
         </div>
       </div>
 
       <div class="box">
-        <i class="fas fa-seedling fa-2x"></i>
-        <h4>Hops</h4>
-        <div class="wrap-features">
-          <span v-for="hop in beer.ingredients.hops" :hop="hop" :key="hop.name">
-            <p class="feature">{{ hop.name }}</p>
-          </span>
+        <div class="text">
+          <i class="fas fa-seedling fa-2x"></i>
+          <h4>Hops</h4>
+          <div class="wrap-features">
+            <span
+              v-for="hop in beer.ingredients.hops"
+              :hop="hop"
+              :key="hop.name"
+            >
+              <p class="feature">{{ hop.name }}</p>
+            </span>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="boxes">
       <div class="box">
-        <i class="fas fa-utensils fa-2x"></i>
-        <h4>Food Pairing</h4>
-        <span v-for="dish in beer.food_pairing" :dish="dish" :key="dish">
-          <p>{{ dish }}</p>
-        </span>
+        <div class="text">
+          <i class="fas fa-utensils fa-2x"></i>
+          <h4>Food Pairing</h4>
+          <span v-for="dish in beer.food_pairing" :dish="dish" :key="dish">
+            <p>{{ dish }}</p>
+          </span>
+        </div>
       </div>
 
       <div class="box">
-        <i class="fas fa-comment fa-2x"></i>
-        <h4>Brewer Tip</h4>
-        <p>{{ beer.brewers_tips }}</p>
+        <div class="text">
+          <i class="fas fa-comment fa-2x"></i>
+          <h4>Brewer Tip</h4>
+          <p>{{ beer.brewers_tips }}</p>
+        </div>
       </div>
     </section>
 
@@ -125,22 +137,27 @@ export default {
 }
 .header {
   display: flex;
-  background: white;
+  color: white;
   justify-content: center;
   flex-direction: column;
   align-items: center;
   width: 100%;
+  padding-top: 30px;
 }
 .align {
   display: flex;
   justify-content: center;
 }
 .intro {
-  background: white;
+  color: white;
   display: grid;
   grid-gap: 10px;
   grid-template-columns: repeat(2, 1fr);
   padding: 3rem;
+}
+
+h2 {
+  font-weight: bold;
 }
 .info {
   font-size: 25px;
@@ -176,12 +193,11 @@ img {
   clip-path: circle(50%);
   height: 10em;
   width: 10em;
-  transition: transform 0.5s;
+  transition: 0.5s;
+  opacity: 0.7;
 }
 .property:hover {
-  -ms-transform: scale(1); /* IE 9 */
-  -webkit-transform: scale(1); /* Safari 3-8 */
-  transform: scale(1.2);
+  opacity: 1;
 }
 .feature {
   border: 4px solid black;
@@ -214,7 +230,17 @@ img {
   flex-direction: column;
   text-align: center;
   padding: 1.5rem 2rem;
-  box-shadow: gray;
+  border: 10px solid black;
+}
+
+.text {
+  transition: transform 0.6s;
+}
+
+.text:hover {
+  -ms-transform: scale(1); /* IE 9 */
+  -webkit-transform: scale(1); /* Safari 3-8 */
+  transform: scale(1.1);
 }
 // Media Queries
 @media (max-width: 700px) {
@@ -230,6 +256,9 @@ img {
     width: 5em;
   }
   .info {
+    font-size: 15px;
+  }
+  h5 {
     font-size: 15px;
   }
   .sheet {
