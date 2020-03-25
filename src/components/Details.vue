@@ -21,7 +21,7 @@
         <h5 @click="$bvToast.show('abv-toast')">ABV [i]</h5>
         <h5>{{ beer.abv }}</h5>
       </div>
-  
+
       <div class="property">
         <h5 @click="$bvToast.show('og-toast')">OG [i]</h5>
         <h5>{{ beer.target_og }}</h5>
@@ -34,27 +34,46 @@
     </section>
 
     <section class="toasts">
-        <b-toast id="abv-toast" title="Alcohol by Volume" static> A standard measure of how much alcohol (ethanol) is contained in a given volume of an alcoholic beverage (expressed as a volume percent).</b-toast>
-        <b-toast id="og-toast" title="Original Gravity" static no-auto-hide> Original Gravity (abbreviated OG) is a measure of the fermentable and unfermentable substances in a beer wort before fermentation. Those substances are often the sugars that will be converted to alcohol during the fermentation process.</b-toast>
-        <b-toast id="ibu-toast" title="International Bitterness Units " static no-auto-hide> It is the gauge of beer's bitterness. What IBUs measure are the parts per million of isohumulone found in a beer, the acid found in hops that gives beer its bitter bite.</b-toast>
-
-
+      <b-toast id="abv-toast" title="Alcohol by Volume" static>
+        A standard measure of how much alcohol (ethanol) is contained in a given
+        volume of an alcoholic beverage (expressed as a volume
+        percent).</b-toast
+      >
+      <b-toast id="og-toast" title="Original Gravity" static no-auto-hide>
+        Original Gravity (abbreviated OG) is a measure of the fermentable and
+        unfermentable substances in a beer wort before fermentation. Those
+        substances are often the sugars that will be converted to alcohol during
+        the fermentation process.</b-toast
+      >
+      <b-toast
+        id="ibu-toast"
+        title="International Bitterness Units "
+        static
+        no-auto-hide
+      >
+        It is the gauge of beer's bitterness. What IBUs measure are the parts
+        per million of isohumulone found in a beer, the acid found in hops that
+        gives beer its bitter bite.</b-toast
+      >
     </section>
 
     <section class="boxes">
-
       <div class="box">
         <i class="fas fa-leaf fa-2x"></i>
         <h4>Malts</h4>
         <div class="wrap-features">
-          <span v-for="malt in beer.ingredients.malt" :malt="malt" :key="malt.name">
+          <span
+            v-for="malt in beer.ingredients.malt"
+            :malt="malt"
+            :key="malt.name"
+          >
             <p class="feature">{{ malt.name }}</p>
           </span>
         </div>
       </div>
 
       <div class="box">
-         <i class="fas fa-seedling fa-2x"></i>
+        <i class="fas fa-seedling fa-2x"></i>
         <h4>Hops</h4>
         <div class="wrap-features">
           <span v-for="hop in beer.ingredients.hops" :hop="hop" :key="hop.name">
@@ -65,7 +84,6 @@
     </section>
 
     <section class="boxes">
-
       <div class="box">
         <i class="fas fa-utensils fa-2x"></i>
         <h4>Food Pairing</h4>
@@ -79,9 +97,7 @@
         <h4>Brewer Tip</h4>
         <p>{{ beer.brewers_tips }}</p>
       </div>
-
     </section>
-
 
     <!-- Top Container -->
   </div>
@@ -160,6 +176,12 @@ img {
   clip-path: circle(50%);
   height: 10em;
   width: 10em;
+  transition: transform 0.5s;
+}
+.property:hover {
+  -ms-transform: scale(1); /* IE 9 */
+  -webkit-transform: scale(1); /* Safari 3-8 */
+  transform: scale(1.2);
 }
 .feature {
   border: 4px solid black;
