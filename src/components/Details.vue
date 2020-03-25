@@ -38,45 +38,36 @@
       </div>
     </section>
 
-    <section class="sheet">
-      <div class="details">
+    <section class="boxes">
+
+      <div class="box">
         <i class="fas fa-leaf fa-2x"></i>
         <h4>Malts</h4>
         <div class="wrap-features">
-          <span
-            v-for="malt in beer.ingredients.malt"
-            :malt="malt"
-            :key="malt.name"
-          >
+          <span v-for="malt in beer.ingredients.malt" :malt="malt" :key="malt.name">
             <p class="feature">{{ malt.name }}</p>
           </span>
         </div>
       </div>
-      <div class="details">
-        <i class="fas fa-seedling fa-2x"></i>
+
+      <div class="box">
+         <i class="fas fa-seedling fa-2x"></i>
         <h4>Hops</h4>
         <div class="wrap-features">
-          <span
-            class=""
-            v-for="hop in beer.ingredients.hops"
-            :hop="hop"
-            :key="hop.name"
-          >
+          <span v-for="hop in beer.ingredients.hops" :hop="hop" :key="hop.name">
             <p class="feature">{{ hop.name }}</p>
           </span>
         </div>
       </div>
-    </section>
 
-    <section class="boxes">
       <div class="box">
         <i class="fas fa-utensils fa-2x"></i>
         <h4>Food Pairing</h4>
         <span v-for="dish in beer.food_pairing" :dish="dish" :key="dish">
           <p>{{ dish }}</p>
         </span>
-        
       </div>
+
       <div class="box">
         <i class="fas fa-comment fa-2x"></i>
         <h4>Brewer Tip</h4>
@@ -166,18 +157,6 @@ img {
   width: 7em;
 }
 
-.sheet {
-  background: white;
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: repeat(2, 1fr);
-  padding: 3rem;
-}
-.details {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 .feature {
   border: 4px solid black;
   border-radius: 5px;
@@ -194,6 +173,7 @@ img {
 .boxes {
   display: grid;
   grid-gap: 20px;
+  margin: 0px 20px;
   grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
 }
 .box {
