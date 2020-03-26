@@ -1,6 +1,6 @@
 <template>
   <div class="footer">
-    <h2>hi</h2>
+    <h6>BREWDOG | 2020</h6>
   </div>
 </template>
 
@@ -15,12 +15,12 @@ export default class Footer extends Vue {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .footer {
-  flex-shrink: 0;
   bottom: 0;
   width: 100%;
-  background-color: blue;
+  background-color: #2b2a29;
+  color: white;
   display: flex;
-  justify-content: space-between;
-  position: fixed;
+  justify-content: center;
+  overflow: hidden;
 }
 </style>

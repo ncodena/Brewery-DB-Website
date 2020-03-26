@@ -131,7 +131,6 @@ export default {
 
 <style lang="scss">
 .wrapper {
-  background: rgba(0, 0, 0, 0.6);
   display: grid;
   grid-gap: 20px;
 }

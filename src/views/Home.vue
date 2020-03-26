@@ -35,6 +35,5 @@ export default {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  background: rgba(0, 0, 0, 0.6);
 }
 </style>

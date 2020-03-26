@@ -6,12 +6,12 @@
       categories="Our Beers"
       random="Discover"
     />
-
-    <div id="content"></div>
-    <Footer />
     <!-- <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> -->
-    <router-view />
+    <div class="view">
+      <router-view />
+    </div>
+    <Footer />
   </div>
 </template>
 
@@ -38,6 +38,14 @@ export default {
   position: fixed;
   top: 0;
   width: 100%;
+}
+
+.view {
+  min-height: 100%;
+  position: relative;
+  margin-top: 40px;
+  padding-bottom: 30px;
+  background: rgba(0, 0, 0, 0.6);
 }
 
 // #nav {
