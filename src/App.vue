@@ -1,15 +1,17 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <!-- <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> -->
+    <div id="content">
+      <div id="nav">
+        <Menu
+          brandName="BREWDOG"
+          home="Home"
+          categories="Our Beers"
+          random="Discover"
+        />
+      </div>
     </div>
-    <Menu
-      brandName="BREWDOG"
-      home="Home"
-      categories="Our Beers"
-      random="Discover"
-    />
+    <!-- <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link> -->
     <router-view />
   </div>
 </template>
@@ -31,9 +33,11 @@ export default {
   background-attachment: fixed;
   font-family: "Oswald";
 }
-// .nav {
-//   position: fixed;
-// }
+#nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
 
 // #nav {
 //   padding: 30px;
