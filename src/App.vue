@@ -1,15 +1,14 @@
 <template>
   <div id="app">
-    <div id="content">
-      <div id="nav">
-        <Menu
-          brandName="BREWDOG"
-          home="Home"
-          categories="Our Beers"
-          random="Discover"
-        />
-      </div>
-    </div>
+    <Menu
+      brandName="BREWDOG"
+      home="Home"
+      categories="Our Beers"
+      random="Discover"
+    />
+
+    <div id="content"></div>
+    <Footer />
     <!-- <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> -->
     <router-view />
@@ -18,9 +17,11 @@
 
 <script>
 import Menu from "@/components/Menu";
+import Footer from "@/components/Footer";
 export default {
   components: {
-    Menu
+    Menu,
+    Footer
   }
 };
 </script>

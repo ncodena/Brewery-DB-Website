@@ -1,16 +1,16 @@
 <template>
-<div id="navbar">
-  <b-navbar toggleable="lg" type="dark" variant="dark">
-    <b-navbar-brand href="#">{{ brandName }}</b-navbar-brand>
-    <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-    <b-collapse id="nav-collapse" is-nav>
-      <b-navbar-nav>
-        <b-nav-item href="#">{{ home }}</b-nav-item>
-        <b-nav-item href="#">{{ categories }}</b-nav-item>
-        <b-nav-item href="#">{{ random }}</b-nav-item>
-      </b-navbar-nav>
-    </b-collapse>
-  </b-navbar>
+  <div id="navbar">
+    <b-navbar toggleable="lg" type="dark" variant="dark">
+      <b-navbar-brand href="#">{{ brandName }}</b-navbar-brand>
+      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+      <b-collapse id="nav-collapse" is-nav>
+        <b-navbar-nav>
+          <b-nav-item href="#">{{ home }}</b-nav-item>
+          <b-nav-item href="#">{{ categories }}</b-nav-item>
+          <b-nav-item href="#">{{ random }}</b-nav-item>
+        </b-navbar-nav>
+      </b-collapse>
+    </b-navbar>
   </div>
 </template>
 <script lang="ts">
@@ -30,7 +30,7 @@ export default class HelloWorld extends Vue {
 .navbar {
   position: fixed;
   top: 0;
-  width: 100%
+  width: 100%;
 }
 // #nav {
 //   padding: 30px;
