@@ -1,4 +1,5 @@
 <template>
+<div id="navbar">
   <b-navbar toggleable="lg" type="dark" variant="dark">
     <b-navbar-brand href="#">{{ brandName }}</b-navbar-brand>
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -10,6 +11,7 @@
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
+  </div>
 </template>
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
@@ -25,9 +27,11 @@ export default class HelloWorld extends Vue {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-// .hello {
-//   position: fixed;
-// }
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%
+}
 // #nav {
 //   padding: 30px;
 
