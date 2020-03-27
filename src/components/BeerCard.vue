@@ -1,24 +1,25 @@
 <template>
-<section class="intro" :key="beer.id">
-        <div class="container">
-          <img v-if="beer.image_url" :src="beer.image_url" img-alt="image"/>
-          <img v-else src="assets/beer.png" img-alt="no_image"/>
-        </div>
-        <div class="container">
-          <h6>First Brewed: {{ beer.name }}</h6>
-          <p class="info">{{ beer.first_brewed }}</p>
-        </div>
-      
+  <section class="intro" :key="beer.id">
+    <div class="container">
+      <img v-if="beer.image_url" :src="beer.image_url" img-alt="image" />
+      <img v-else src="assets/beer.png" img-alt="no_image" />
+    </div>
+    <div class="container">
+      <h6>First Brewed: {{ beer.name }}</h6>
+      <p class="info">{{ beer.first_brewed }}</p>
+    </div>
 
-      <div class="back">
-        <div class="text">
-          <b-card-text>
-            {{ beer.tagline }}
-          </b-card-text>
-          <h3>{{ beer.ingredients.yeast }}</h3>
-            <router-link :to="'/beers/' + beer.name" exact><b-button>Details</b-button></router-link>
-        </div>
+    <div class="back">
+      <div class="text">
+        <b-card-text>
+          {{ beer.tagline }}
+        </b-card-text>
+        <h3>{{ beer.ingredients.yeast }}</h3>
+        <router-link :to="'/beers/' + beer.name" exact
+          ><b-button>Details</b-button></router-link
+        >
       </div>
+    </div>
   </section>
 
   <!-- <b-card
@@ -68,7 +69,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
 .intro {
   background-color: white;
   display: grid;
@@ -137,14 +137,10 @@ img {
 // Media Queries
 
 @media (max-width: 700px) {
-
   .intro {
     grid-template-columns: 1fr;
     min-width: 90%;
     min-height: 83vh;
   }
-
 }
-
-
 </style>
