@@ -5,48 +5,22 @@
       <img v-else src="assets/beer.png" img-alt="no_image" />
     </div>
     <div class="container">
-      <h6>First Brewed: {{ beer.name }}</h6>
-      <p class="info">{{ beer.first_brewed }}</p>
+      <h4>{{ beer.name }}</h4>
+      <p class="info">First Brewed: {{ beer.first_brewed }}</p>
     </div>
 
-    <div class="back">
+    <div class="overlay">
       <div class="text">
         <b-card-text>
           {{ beer.tagline }}
         </b-card-text>
-        <h3>{{ beer.ingredients.yeast }}</h3>
+        <h3 class="center">{{ beer.ingredients.yeast }}</h3>
         <router-link :to="'/beers/' + beer.name" exact
           ><b-button>Details</b-button></router-link
         >
       </div>
     </div>
   </section>
-
-  <!-- <b-card
-    no-body
-    :key="beer.id"
-    class="overflow-hidden"
-    style="max-width: 540px;"
-  >
-    <b-row no-gutters>
-      <b-col md="6">
-        <b-card-img
-          v-if="beer.image_url"
-          :src="beer.image_url"
-          img-alt="image"
-          class="rounded-0"
-        />
-        <b-card-img
-          v-else
-          src="assets/beer.png"
-          img-alt="no_image"
-          class="rounded-0"
-        ></b-card-img>
-      </b-col>
-      <b-col md="6">
-        <b-card-body :title="beer.name"> </b-card-body>
-      </b-col>
-    </b-row> -->
 
   <!-- </b-card> -->
   <!-- <img alt="Vue logo" src="../assets/logo.png" />
@@ -77,32 +51,20 @@ export default {
   padding: 3rem;
   margin: 20px 20px 20px 20px;
   min-height: 70vh;
-  max-width: 26%;
+  max-width: 27%;
+  min-width: 27%;
+  position: relative;
 }
 
 img {
   max-width: 80px;
   min-height: 40%;
 }
-.intro :hover .face {
+.intro:hover .container {
   opacity: 0.2;
 }
-.intro:hover .middle {
+.intro:hover .overlay {
   opacity: 1;
-}
-// .overflow-hidden {
-//   max-width: 540px;
-//   max-height: 407px;
-//   min-height: 70vh;
-//   margin: 20px 20px 20px 20px;
-// }
-
-.face {
-  min-width: 368px;
-  max-width: 368px;
-  opacity: 1;
-  transition: 1.1s ease;
-  backface-visibility: hidden;
 }
 
 .container {
@@ -112,26 +74,24 @@ img {
   justify-content: center;
 }
 
-// .col-md-6 {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   min-height: 70vh;
-// }
-.back {
-  transition: 0.5s ease;
-  opacity: 0;
+.overlay {
   position: absolute;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  top: 50%;
-  left: 50%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  transition: 0.5s ease;
+  min-height: 70vh;
+  max-width: 100%;
+  display: flex;
 }
 .text {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 // Media Queries
