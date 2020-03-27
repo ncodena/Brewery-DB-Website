@@ -67,7 +67,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 
 .intro {
   background-color: white;

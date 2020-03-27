@@ -18,43 +18,25 @@
 
     <section class="properties">
       <div class="property">
-        <h5 @click="$bvToast.show('abv-toast')">ABV [i]</h5>
+        <h5>ABV <i class="far fa-question-circle" v-b-tooltip.hover title="A standard measure of how much alcohol (ethanol) is contained in a given
+        volume of an alcoholic beverage (expressed as a volume percent)."></i></h5>
         <h5>{{ beer.abv }}</h5>
       </div>
 
       <div class="property">
-        <h5 @click="$bvToast.show('og-toast')">OG [i]</h5>
+        <h5>OG <i class="far fa-question-circle" v-b-tooltip.hover title="Original Gravity (abbreviated OG) is a measure of the fermentable and
+        unfermentable substances in a beer wort before fermentation. Those
+        substances are often the sugars that will be converted to alcohol during
+        the fermentation process."></i></h5>
         <h5>{{ beer.target_og }}</h5>
       </div>
 
       <div class="property">
-        <h5 @click="$bvToast.show('ibu-toast')">IBU [i]</h5>
+        <h5>IBU <i class="far fa-question-circle" v-b-tooltip.hover title="It is the gauge of beer's bitterness. What IBUs measure are the parts
+        per million of isohumulone found in a beer, the acid found in hops that
+        gives beer its bitter bite."></i></h5>
         <h5>{{ beer.ibu }}</h5>
       </div>
-    </section>
-
-    <section class="toasts">
-      <b-toast id="abv-toast" title="Alcohol by Volume" static>
-        A standard measure of how much alcohol (ethanol) is contained in a given
-        volume of an alcoholic beverage (expressed as a volume
-        percent).</b-toast
-      >
-      <b-toast id="og-toast" title="Original Gravity" static no-auto-hide>
-        Original Gravity (abbreviated OG) is a measure of the fermentable and
-        unfermentable substances in a beer wort before fermentation. Those
-        substances are often the sugars that will be converted to alcohol during
-        the fermentation process.</b-toast
-      >
-      <b-toast
-        id="ibu-toast"
-        title="International Bitterness Units "
-        static
-        no-auto-hide
-      >
-        It is the gauge of beer's bitterness. What IBUs measure are the parts
-        per million of isohumulone found in a beer, the acid found in hops that
-        gives beer its bitter bite.</b-toast
-      >
     </section>
 
     <section class="boxes">
@@ -129,7 +111,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 .wrapper {
   display: grid;
   grid-gap: 20px;
