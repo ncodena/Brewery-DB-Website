@@ -20,7 +20,9 @@ export default {
   methods: {
     ...mapActions(["fetchBeers"])
   },
-  computed: mapGetters(["indexBeers"]),
+  computed: {
+    ...mapGetters(["indexBeers"])
+  },
   created() {
     this.fetchBeers();
   },
