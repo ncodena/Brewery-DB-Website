@@ -5,8 +5,9 @@
       <img v-else src="assets/beer.png" img-alt="no_image" />
     </div>
     <div class="container">
-      <h4>{{ beer.name }}</h4>
-      <p class="info">First Brewed: {{ beer.first_brewed }}</p>
+      <h5>{{ beer.name }}</h5>
+      <p class="info">{{ beer.first_brewed }}</p>
+      <p class="info">{{ beer.abv }} %</p>
     </div>
 
     <div class="overlay">
