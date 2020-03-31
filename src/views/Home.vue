@@ -2,8 +2,11 @@
   <div class="mainContainer">
 
     <div class="sortContainer">
-      <b-button>Name</b-button>
-      <b-button>Alcohol Volume</b-button>
+      <div class="sortGroup">
+        <h4>Sort by: </h4>
+        <b-button>Name</b-button>
+        <b-button>Alcohol Volume</b-button>
+      </div>
     </div>
     <div class="beersContainer">
       <beer-card v-for="beer in indexBeers" :beer="beer" :key="beer.id" />
@@ -51,11 +54,55 @@ export default {
 .sortContainer {
   display: flex;
   width: 100%;
-  justify-content: flex-start;
+  justify-content: center;
+  color: white;
 }
+
+.sortGroup {
+  display: flex;
+  width: 25%;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+}
+
 .beersContainer {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+@media (max-width: 700px) {
+  .intro {
+    grid-template-columns: 1fr;
+  }
+  .img {
+    max-width: 80px;
+    min-height: 40%;
+  }
+  .property {
+    height: 5em;
+    width: 5em;
+  }
+  .info {
+    font-size: 15px;
+  }
+  h5 {
+    font-size: 15px;
+  }
+  .sheet {
+    grid-template-columns: 1fr;
+  }
+
+  @media (max-width: 700px) {
+
+    .sortGroup {
+      flex-direction: column;
+      height: 30vh;
+      justify-content: space-around;
+      align-items: center;
+      width: 50%;
+    }
+  }
 }
 </style>

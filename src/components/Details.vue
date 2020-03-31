@@ -144,7 +144,6 @@ export default {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding-top: 30px;
 }
 .align {
   display: flex;
