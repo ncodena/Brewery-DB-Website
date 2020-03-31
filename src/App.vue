@@ -43,7 +43,8 @@ export default {
 .view {
   min-height: 100%;
   position: relative;
-  margin-top: 40px;
+  margin-top: 56px;
+  padding-top: 30px;
   padding-bottom: 30px;
   background: rgba(0, 0, 0, 0.6);
 }
