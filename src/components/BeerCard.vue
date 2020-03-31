@@ -1,13 +1,13 @@
 <template>
   <section class="intro" :key="beer.id">
     <div class="container">
-      <img v-if="beer.image_url" :src="beer.image_url" img-alt="image" />
-      <img v-else src="assets/beer.png" img-alt="no_image" />
+      <img v-if="beer.image_url" :src="beer.image_url" img-alt="image" class="beerImage" />
+      <img v-else src="@/assets/bottle.png" img-alt="no_image" class="defaultImage" />
     </div>
     <div class="container">
       <h5>{{ beer.name }}</h5>
-      <p class="info">{{ beer.first_brewed }}</p>
-      <p class="info">{{ beer.abv }} %</p>
+      <h6 class="info">{{ beer.first_brewed }}</h6>
+      <h6 class="info">{{ beer.abv }}%</h6>
     </div>
 
     <div class="overlay">
@@ -57,7 +57,11 @@ export default {
   position: relative;
 }
 
-img {
+.beerImage {
+  max-width: 80px;
+  min-height: 40%;
+}
+.defaultImage {
   max-width: 80px;
   min-height: 40%;
 }

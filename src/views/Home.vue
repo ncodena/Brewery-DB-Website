@@ -64,7 +64,7 @@ export default {
 
 .sortGroup {
   display: flex;
-  width: 25%;
+  width: 45%;
   justify-content: space-between;
   flex-direction: row;
   align-items: center;
