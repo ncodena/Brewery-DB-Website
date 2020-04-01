@@ -1,8 +1,18 @@
 <template>
   <section class="intro" :key="beer.id">
     <div class="container">
-      <img v-if="beer.image_url" :src="beer.image_url" img-alt="image" class="beerImage" />
-      <img v-else src="@/assets/beer_bottle.png" img-alt="no_image" class="defaultImage" />
+      <img
+        v-if="beer.image_url"
+        :src="beer.image_url"
+        img-alt="image"
+        class="beerImage"
+      />
+      <img
+        v-else
+        src="@/assets/beer_bottle.png"
+        img-alt="no_image"
+        class="defaultImage"
+      />
     </div>
     <div class="container">
       <h6>{{ beer.name }}</h6>
@@ -87,7 +97,7 @@ h6 {
 }
 
 h3 {
-  color:black;
+  color: black;
 }
 
 .overlay {
@@ -134,6 +144,5 @@ h3 {
     flex-direction: column;
     width: 147%;
   }
-
 }
 </style>

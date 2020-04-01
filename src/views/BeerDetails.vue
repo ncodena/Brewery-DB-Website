@@ -1,16 +1,17 @@
 <template>
-
   <div class="beerDetails">
-
     <Details v-for="beer in detailsBeer" :beer="beer" :key="beer.id" />
 
     <div class="recommendations">
       <h2>Similar</h2>
       <div class="beersList">
-      <beer-card v-for="beer in indexRelatedBeers" :beer="beer" :key="beer.id"/>
+        <beer-card
+          v-for="beer in indexRelatedBeers"
+          :beer="beer"
+          :key="beer.id"
+        />
       </div>
     </div>
-
   </div>
 </template>
 
@@ -46,7 +47,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-h2{
+h2 {
   font-size: 1.75rem;
   color: white;
   display: flex;
