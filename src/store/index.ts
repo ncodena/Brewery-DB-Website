@@ -45,9 +45,9 @@ export default new Vuex.Store({
       const response = await axios 
         .get(`https://api.punkapi.com/v2/beers?beer_name=${name}`)
 
-        .then(response => {
+        .then(async response => {
          const yeast = response.data.message[0].ingredients.yeast;
-         return axios.get(`https://api.punkapi.com/v2/beers?per_page=3&yeast=${yeast}`)
+         return await axios.get(`https://api.punkapi.com/v2/beers?per_page=3&yeast=${yeast}`)
         })
         .then(response => response);
         console.log(response.data)
