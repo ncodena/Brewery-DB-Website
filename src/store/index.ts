@@ -31,11 +31,32 @@ export default new Vuex.Store({
       commit("setBeers", response.data);
     },
 
-    async fetchBeer({ commit }, name) {
-      const response = await axios
-        .get(`https://api.punkapi.com/v2/beers?beer_name=${name}`)
+    // async fetchBeer({ commit }, name) {
+    //   const response = await axios
+    //     .get(`https://api.punkapi.com/v2/beers?beer_name=${name}`)
 
+    //     .then(response => response);
+
+    //   // console.log(response.data);
+
+    //   commit("detailsBeer", response.data);
+    // },
+
+    async fetchBeer({ commit }) {
+
+      const response = await axios
+        .get("https://api.punkapi.com/v2/beers")
+
+        .then(async response => {
+          // const name = response.data[0].name;
+          console.log(response.data)
+
+          return await axios.get(
+            `https://api.punkapi.com/v2/beers/beers?beer_name=${name}`
+          );
+        })
         .then(response => response);
+        console.log(response.data);
 
       // console.log(response.data);
 

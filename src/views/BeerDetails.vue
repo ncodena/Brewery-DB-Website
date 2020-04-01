@@ -35,8 +35,8 @@ export default {
   },
   created() {
     const name = window.location.href.split("/").pop();
-    console.log(name);
-    this.fetchBeer(name);
+    // console.log(name);
+    this.fetchBeer();
     this.fetchRelated(name);
   },
   components: {
