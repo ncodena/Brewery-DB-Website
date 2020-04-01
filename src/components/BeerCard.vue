@@ -2,10 +2,10 @@
   <section class="intro" :key="beer.id">
     <div class="container">
       <img v-if="beer.image_url" :src="beer.image_url" img-alt="image" class="beerImage" />
-      <img v-else src="@/assets/bottle.png" img-alt="no_image" class="defaultImage" />
+      <img v-else src="@/assets/beer_bottle.png" img-alt="no_image" class="defaultImage" />
     </div>
     <div class="container">
-      <h5>{{ beer.name }}</h5>
+      <h6>{{ beer.name }}</h6>
       <h6 class="info">{{ beer.first_brewed }}</h6>
       <h6 class="info">{{ beer.abv }}%</h6>
     </div>
@@ -62,8 +62,8 @@ export default {
   min-height: 40%;
 }
 .defaultImage {
-  max-width: 80px;
-  min-height: 40%;
+  max-width: 160%;
+  min-height: 63%;
 }
 .intro:hover .container {
   opacity: 0.2;
@@ -77,6 +77,13 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+h6 {
+  width: 130%;
+  display: flex;
+  justify-content: center;
+  font-size: 1em;
 }
 
 .overlay {
@@ -105,7 +112,24 @@ export default {
   .intro {
     grid-template-columns: 1fr;
     min-width: 90%;
-    min-height: 83vh;
+    min-height: 70vh;
   }
+  .beerImg {
+    max-width: 70px;
+    min-height: 30%;
+  }
+  .defaultImage {
+    max-width: 90%;
+    min-height: 40%;
+  }
+  h6 {
+    font-size: 1.75rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 147%;
+  }
+
 }
 </style>

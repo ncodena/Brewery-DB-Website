@@ -8,7 +8,8 @@
 
     <section class="intro">
       <div class="imageContainer">
-        <img v-if="beer.image_url" :src="beer.image_url" img-alt="image" />
+        <img v-if="beer.image_url" :src="beer.image_url" img-alt="image" class="beerImage"/>
+         <img v-else src="@/assets/beer_bottle.png" img-alt="no_image" class="defaultImage"/>
       </div>
       <div class="description">
         <h4>First Brewed: {{ beer.first_brewed }}</h4>
@@ -170,8 +171,12 @@ h2 {
   justify-content: center;
   align-items: center;
 }
-img {
+.beerImage {
   max-width: 130px;
+  min-height: 40%;
+}
+.defaultImage {
+  max-width: 220%;
   min-height: 40%;
 }
 .description {
@@ -248,8 +253,12 @@ img {
   .intro {
     grid-template-columns: 1fr;
   }
-  .img {
+  .beerImg {
     max-width: 80px;
+    min-height: 40%;
+  }
+  .defaultImage {
+    max-width: 83%;
     min-height: 40%;
   }
   .property {
