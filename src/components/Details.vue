@@ -8,8 +8,18 @@
 
     <section class="intro">
       <div class="imageContainer">
-        <img v-if="beer.image_url" :src="beer.image_url" img-alt="image" class="beerImage"/>
-         <img v-else src="@/assets/beer_bottle.png" img-alt="no_image" class="defaultImage"/>
+        <img
+          v-if="beer.image_url"
+          :src="beer.image_url"
+          img-alt="image"
+          class="beerImage"
+        />
+        <img
+          v-else
+          src="@/assets/beer_bottle.png"
+          img-alt="no_image"
+          class="defaultImage"
+        />
       </div>
       <div class="description">
         <h4>First Brewed: {{ beer.first_brewed }}</h4>
