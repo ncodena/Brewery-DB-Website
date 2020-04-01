@@ -7,15 +7,18 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     beers: [],
-    beer: {}
+    beer: {},
+    relatedBeers: []
   },
   getters: {
     indexBeers: state => state.beers,
-    detailsBeer: state => state.beer
+    detailsBeer: state => state.beer,
+    indexRelatedBeers: state => state.relatedBeers,
   },
   mutations: {
     setBeers: (state, beers) => (state.beers = beers),
-    detailsBeer: (state, beer) => (state.beer = beer)
+    detailsBeer: (state, beer) => (state.beer = beer),
+    indexRelatedBeers: (state, relatedBeers) => (state.relatedBeers = relatedBeers)
   },
   actions: {
     async fetchBeers({ commit }) {
@@ -33,10 +36,22 @@ export default new Vuex.Store({
 
         .then(response => response);
 
-      console.log(response);
+      console.log(response.data);
 
       commit("detailsBeer", response.data);
+    },
+
+    async fetchRelated({ commit }, name) {
+      const response = await axios 
+        .get(`https://api.punkapi.com/v2/beers?beer_name=${name}`)
+
+        .then(response => {
+         const yeast = response.data.message[0].ingredients.yeast;
+         return axios.get(`https://api.punkapi.com/v2/beers?per_page=3&yeast=${yeast}`)
+        })
+        .then(response => response);
+        console.log(response.data)
+        commit("indexRelatedBeers", response.data);
     }
-  },
-  modules: {}
+  }
 });
