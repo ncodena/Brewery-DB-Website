@@ -22,7 +22,9 @@
         />
       </div>
       <div class="description">
-        <h4>First Brewed: {{ beer.first_brewed }}</h4>
+        <h5>First Brewed: {{ beer.first_brewed }}</h5>
+        <h6>{{ beer.ingredients.yeast }}</h6>
+
         <p class="info">{{ beer.description }}</p>
       </div>
     </section>
@@ -170,6 +172,10 @@ export default {
 
 h2 {
   font-weight: bold;
+}
+
+h6 {
+  color: white;
 }
 .info {
   font-size: 25px;
