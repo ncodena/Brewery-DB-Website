@@ -2,14 +2,21 @@ import Vue from "vue";
 import Vuex from "vuex";
 import axios from "axios";
 
+// const getDefaultState = () => {
+//   return {
+//     beer: {}
+//   }
+// };
+
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
     beers: [],
     beer: {},
-    relatedBeers: []
+    relatedBeers: [],
   },
+
   getters: {
     indexBeers: state => state.beers,
     detailsBeer: state => state.beer,
@@ -18,10 +25,18 @@ export default new Vuex.Store({
   mutations: {
     setBeers: (state, beers) => (state.beers = beers),
     detailsBeer: (state, beer) => (state.beer = beer),
-    indexRelatedBeers: (state, relatedBeers) =>
-      (state.relatedBeers = relatedBeers)
+    indexRelatedBeers: (state, relatedBeers) => (state.relatedBeers = relatedBeers),
+    // resetState (state) {
+    //   Object.assign(state)
+    // }
   },
   actions: {
+
+    // resetState ({commit}){
+    //   commit('resetState')
+    // },
+
+
     async fetchBeers({ commit }) {
       const response = await axios
         .get("https://api.punkapi.com/v2/beers?page=10")
