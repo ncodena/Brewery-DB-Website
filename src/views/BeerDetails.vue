@@ -34,10 +34,9 @@ export default {
     ...mapGetters(["indexRelatedBeers"])
   },
   created() {
-    const name = window.location.href.split("/").pop();
-    // console.log(name);
-    this.fetchBeer();
-    this.fetchRelated(name);
+    const id = window.location.href.split("/").pop();
+    this.fetchBeer(id);
+    this.fetchRelated(id);
   },
   components: {
     Details,
