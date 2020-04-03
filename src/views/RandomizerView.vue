@@ -1,8 +1,8 @@
 <template>
   <div class="beerContainer">
-      <h1>hi</h1>
-      <BeerCard v-for="beer in randomData" :beer="beer" :key="beer.id"/>
-    </div>
+    <h1>hi</h1>
+    <beer-card v-for="beer in randomData" :beer="beer" :key="beer.id" />
+  </div>
 </template>
 
 <script>
@@ -22,18 +22,17 @@ export default {
   },
   created() {
     this.fetchRandomBeer();
-    console.log(this.randomData)
+    console.log(this.randomData);
   },
   components: {
-      BeerCard
+    BeerCard
   }
 };
 </script>
 
 <style scoped lang="scss">
-
 h1 {
-    color: white;
+  color: white;
 }
 
 .beerContainer {

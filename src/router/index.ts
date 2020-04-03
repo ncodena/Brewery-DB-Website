@@ -21,7 +21,9 @@ const routes = [
     name: "RandomizerView",
     props: true,
     component: () =>
-      import(/* webpackChunkName: "RandomizerView" */ "../views/RandomizerView.vue")
+      import(
+        /* webpackChunkName: "RandomizerView" */ "../views/RandomizerView.vue"
+      )
   },
   {
     path: "/beers/:id",
@@ -30,8 +32,6 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "BeerDetails" */ "../views/BeerDetails.vue")
   }
- 
-
 ];
 
 const router = new VueRouter({
