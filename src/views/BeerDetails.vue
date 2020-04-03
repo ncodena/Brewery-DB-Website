@@ -56,5 +56,6 @@ h2 {
 .beersList {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 </style>

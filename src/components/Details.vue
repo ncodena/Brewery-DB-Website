@@ -24,12 +24,8 @@
       <div class="description">
         <h5>First Brewed: {{ beer.first_brewed }}</h5>
         <h6>{{ beer.ingredients.yeast }}</h6>
-
         <p class="info">{{ beer.description }}</p>
-      </div>
-    </section>
-
-    <section class="properties">
+        <section class="properties">
       <div class="property">
         <h5>
           ABV
@@ -71,6 +67,9 @@
         </h5>
         <h5>{{ beer.ibu }}</h5>
       </div>
+    </section>
+      </div>
+      
     </section>
 
     <section class="boxes">
@@ -188,7 +187,7 @@ h6 {
   align-items: center;
 }
 .beerImage {
-  max-width: 130px;
+  max-width: 100px;
   min-height: 40%;
 }
 .defaultImage {
@@ -205,6 +204,7 @@ h6 {
   flex-wrap: wrap;
   justify-content: space-around;
   width: 100%;
+  color:black;
 }
 .property {
   background-color: white;

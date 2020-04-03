@@ -15,7 +15,7 @@
       />
     </div>
     <div class="container">
-      <h6>{{ beer.name }}</h6>
+      <h6 class="info">{{ beer.name }}</h6>
       <h6 class="info">{{ beer.first_brewed }}</h6>
       <h6 class="info">{{ beer.abv }}%</h6>
     </div>
@@ -25,7 +25,7 @@
         <b-card-text>
           {{ beer.tagline }}
         </b-card-text>
-        <h3 class="center">{{ beer.ingredients.yeast }}</h3>
+        <h3 class="info">{{ beer.ingredients.yeast }}</h3>
         <router-link :to="'/beers/' + beer.id" exact
           ><b-button>Details</b-button></router-link
         >
@@ -96,9 +96,6 @@ h6 {
   font-size: 1em;
 }
 
-h3 {
-  color: black;
-}
 
 .overlay {
   position: absolute;
@@ -108,7 +105,7 @@ h3 {
   right: 0;
   opacity: 0;
   transition: 0.5s ease;
-  min-height: 70vh;
+  min-height: 66vh;
   max-width: 100%;
   display: flex;
 }
@@ -118,6 +115,9 @@ h3 {
   justify-content: center;
   align-items: center;
   width: 100%;
+  background-color: black;
+  color: white;
+  border: 3px solid white;
 }
 
 // Media Queries
@@ -126,23 +126,26 @@ h3 {
   .intro {
     grid-template-columns: 1fr;
     min-width: 90%;
-    min-height: 70vh;
+    min-height: 55vh;
   }
-  .beerImg {
-    max-width: 70px;
+  .beerImage {
+    max-width: 55px;
     min-height: 30%;
   }
   .defaultImage {
-    max-width: 90%;
+    max-width: 60%;
     min-height: 40%;
   }
-  h6 {
-    font-size: 1.75rem;
+  .info {
+    font-size: 1.30rem;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 147%;
+    width: 100%;
+  }
+  .overlay {
+    min-height: 43vh;
   }
 }
 </style>
