@@ -1,7 +1,9 @@
 <template>
   <div class="beerContainer">
-    <h1>hi</h1>
+    <h3 class="text">Your next discovery</h3>
     <beer-card v-for="beer in randomData" :beer="beer" :key="beer.id" />
+    <h5 class="text">Press the button and discover your next favourite beer</h5>
+     <b-button @click="fetchRandomBeer()">Discover</b-button>
   </div>
 </template>
 
@@ -31,12 +33,15 @@ export default {
 </script>
 
 <style scoped lang="scss">
-h1 {
-  color: white;
-}
 
 .beerContainer {
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.text {
+  color: white;
 }
 </style>
