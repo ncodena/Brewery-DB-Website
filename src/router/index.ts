@@ -17,19 +17,20 @@ const routes = [
   //     import(/* webpackChunkName: "about" */ "../views/About.vue")
   // },
   {
+    path: "/beers/randomizer",
+    name: "RandomizerView",
+    props: true,
+    component: () =>
+      import(/* webpackChunkName: "RandomizerView" */ "../views/RandomizerView.vue")
+  },
+  {
     path: "/beers/:id",
     name: "BeerDetails",
     props: true,
     component: () =>
       import(/* webpackChunkName: "BeerDetails" */ "../views/BeerDetails.vue")
-  },
-  {
-    path: "/beers/randomizer",
-    name: "RandomizerPage",
-    props: true,
-    component: () =>
-      import(/* webpackChunkName: "BeerDetails" */ "../views/Randomizer.vue")
   }
+ 
 
 ];
 

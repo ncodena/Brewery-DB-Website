@@ -79,7 +79,8 @@ export default new Vuex.Store({
       const response = await axios
         .get("https://api.punkapi.com/v2/beers/random")
 
-        .then(response => response);
+        .then(response => response)
+        console.log(response.data)
 
       commit("setBeers", response.data);
     }

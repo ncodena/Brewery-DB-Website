@@ -1,11 +1,8 @@
 <template>
   <div class="beerContainer">
-        <beer-card
-          v-for="beer in randomData"
-          :beer="beer"
-          :key="beer.id"
-        />
-      </div>
+      <h1>hi</h1>
+      <BeerCard v-for="beer in randomData" :beer="beer" :key="beer.id"/>
+    </div>
 </template>
 
 <script>
@@ -13,7 +10,7 @@
 import BeerCard from "@/components/BeerCard.vue";
 import { mapGetters, mapActions } from "vuex";
 export default {
-  name: "BeerDetails",
+  name: "RandomizerView",
   props: {
     beer: Object
   },
@@ -25,21 +22,20 @@ export default {
   },
   created() {
     this.fetchRandomBeer();
+    console.log(this.randomData)
   },
   components: {
-    BeerCard
+      BeerCard
   }
 };
 </script>
 
 <style scoped lang="scss">
-h2 {
-  font-size: 1.75rem;
-  color: white;
-  display: flex;
-  justify-content: center;
-  padding-top: 5%;
+
+h1 {
+    color: white;
 }
+
 .beerContainer {
   display: flex;
   justify-content: center;
