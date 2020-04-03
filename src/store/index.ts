@@ -80,7 +80,7 @@ export default new Vuex.Store({
         .then(response => response);
       console.log(response.data);
 
-      commit("setBeers", response.data);
+      commit("setRandomBeer", response.data);
     }
   }
 });
