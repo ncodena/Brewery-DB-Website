@@ -26,50 +26,49 @@
         <h6>{{ beer.ingredients.yeast }}</h6>
         <p class="info">{{ beer.description }}</p>
         <section class="properties">
-      <div class="property">
-        <h5>
-          ABV
-          <i
-            class="far fa-question-circle"
-            v-b-tooltip.hover
-            title="A standard measure of how much alcohol (ethanol) is contained in a given
+          <div class="property">
+            <h5>
+              ABV
+              <i
+                class="far fa-question-circle"
+                v-b-tooltip.hover
+                title="A standard measure of how much alcohol (ethanol) is contained in a given
         volume of an alcoholic beverage (expressed as a volume percent)."
-          ></i>
-        </h5>
-        <h5>{{ beer.abv }}</h5>
-      </div>
+              ></i>
+            </h5>
+            <h5>{{ beer.abv }}</h5>
+          </div>
 
-      <div class="property">
-        <h5>
-          OG
-          <i
-            class="far fa-question-circle"
-            v-b-tooltip.hover
-            title="Original Gravity (abbreviated OG) is a measure of the fermentable and
+          <div class="property">
+            <h5>
+              OG
+              <i
+                class="far fa-question-circle"
+                v-b-tooltip.hover
+                title="Original Gravity (abbreviated OG) is a measure of the fermentable and
         unfermentable substances in a beer wort before fermentation. Those
         substances are often the sugars that will be converted to alcohol during
         the fermentation process."
-          ></i>
-        </h5>
-        <h5>{{ beer.target_og }}</h5>
-      </div>
+              ></i>
+            </h5>
+            <h5>{{ beer.target_og }}</h5>
+          </div>
 
-      <div class="property">
-        <h5>
-          IBU
-          <i
-            class="far fa-question-circle"
-            v-b-tooltip.hover
-            title="It is the gauge of beer's bitterness. What IBUs measure are the parts
+          <div class="property">
+            <h5>
+              IBU
+              <i
+                class="far fa-question-circle"
+                v-b-tooltip.hover
+                title="It is the gauge of beer's bitterness. What IBUs measure are the parts
         per million of isohumulone found in a beer, the acid found in hops that
         gives beer its bitter bite."
-          ></i>
-        </h5>
-        <h5>{{ beer.ibu }}</h5>
+              ></i>
+            </h5>
+            <h5>{{ beer.ibu }}</h5>
+          </div>
+        </section>
       </div>
-    </section>
-      </div>
-      
     </section>
 
     <section class="boxes">
@@ -204,7 +203,7 @@ h6 {
   flex-wrap: wrap;
   justify-content: space-around;
   width: 100%;
-  color:black;
+  color: black;
 }
 .property {
   background-color: white;

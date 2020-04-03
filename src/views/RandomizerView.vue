@@ -3,7 +3,7 @@
     <h3 class="text">Your next discovery</h3>
     <beer-card v-for="beer in randomData" :beer="beer" :key="beer.id" />
     <h5 class="text">Press the button and discover your next favourite beer</h5>
-     <b-button @click="fetchRandomBeer()">Discover</b-button>
+    <b-button @click="fetchRandomBeer()">Discover</b-button>
   </div>
 </template>
 
@@ -33,7 +33,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
 .beerContainer {
   display: flex;
   justify-content: center;

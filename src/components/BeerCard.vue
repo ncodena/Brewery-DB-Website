@@ -96,7 +96,6 @@ h6 {
   font-size: 1em;
 }
 
-
 .overlay {
   position: absolute;
   top: 0;
@@ -137,7 +136,7 @@ h6 {
     min-height: 40%;
   }
   .info {
-    font-size: 1.30rem;
+    font-size: 1.3rem;
     display: flex;
     justify-content: center;
     align-items: center;
