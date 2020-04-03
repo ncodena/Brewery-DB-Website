@@ -15,17 +15,20 @@ export default new Vuex.Store({
     beers: [],
     beer: {},
     relatedBeers: [],
+    randomBeer: {}
   },
 
   getters: {
     indexBeers: state => state.beers,
     detailsBeer: state => state.beer,
-    indexRelatedBeers: state => state.relatedBeers
+    indexRelatedBeers: state => state.relatedBeers,
+    randomData: state => state.randomBeer
   },
   mutations: {
     setBeers: (state, beers) => (state.beers = beers),
     detailsBeer: (state, beer) => (state.beer = beer),
     indexRelatedBeers: (state, relatedBeers) => (state.relatedBeers = relatedBeers),
+    setRandomBeer: (state, randomBeer) => (state.randomBeer = randomBeer)
     // resetState (state) {
     //   Object.assign(state)
     // }
@@ -70,6 +73,15 @@ export default new Vuex.Store({
         .then(response => response);
       console.log(response.data);
       commit("indexRelatedBeers", response.data);
+    },
+
+    async fetchRandomBeer({ commit }) {
+      const response = await axios
+        .get("https://api.punkapi.com/v2/beers/random")
+
+        .then(response => response);
+
+      commit("setBeers", response.data);
     }
   }
 });
