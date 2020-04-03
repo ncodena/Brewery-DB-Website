@@ -9,7 +9,7 @@
             ><router-link to="/">{{ home }}</router-link></b-nav-item
           >
           <b-nav-item href="#">{{ categories }}</b-nav-item>
-          <b-nav-item href="#">{{ random }}</b-nav-item>
+          <b-nav-item><router-link to="/beers/randomizer">{{ random }}</router-link></b-nav-item>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>

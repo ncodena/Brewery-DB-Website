@@ -17,12 +17,20 @@ const routes = [
   //     import(/* webpackChunkName: "about" */ "../views/About.vue")
   // },
   {
-    path: "/beers/:name",
+    path: "/beers/:id",
     name: "BeerDetails",
     props: true,
     component: () =>
       import(/* webpackChunkName: "BeerDetails" */ "../views/BeerDetails.vue")
+  },
+  {
+    path: "/beers/randomizer",
+    name: "RandomizerPage",
+    props: true,
+    component: () =>
+      import(/* webpackChunkName: "BeerDetails" */ "../views/Randomizer.vue")
   }
+
 ];
 
 const router = new VueRouter({
