@@ -1,23 +1,15 @@
 <template>
-  <div class="beerDetails">
-    <Details v-for="beer in detailsBeer" :beer="beer" :key="beer.id" />
-
-    <div class="recommendations">
-      <h2>Similar</h2>
-      <div class="beersList">
+  <div class="beerContainer">
         <beer-card
-          v-for="beer in indexRelatedBeers"
+          v-for="beer in randomData"
           :beer="beer"
           :key="beer.id"
         />
       </div>
-    </div>
-  </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import Details from "@/components/Details.vue";
 import BeerCard from "@/components/BeerCard.vue";
 import { mapGetters, mapActions } from "vuex";
 export default {
@@ -26,20 +18,15 @@ export default {
     beer: Object
   },
   methods: {
-    ...mapActions(["fetchBeer"]),
-    ...mapActions(["fetchRelated"])
+    ...mapActions(["fetchRandomBeer"])
   },
   computed: {
-    ...mapGetters(["detailsBeer"]),
-    ...mapGetters(["indexRelatedBeers"])
+    ...mapGetters(["randomData"])
   },
   created() {
-    const id = window.location.href.split("/").pop();
-    this.fetchBeer(id);
-    this.fetchRelated(id);
+    this.fetchRandomBeer();
   },
   components: {
-    Details,
     BeerCard
   }
 };
@@ -53,7 +40,7 @@ h2 {
   justify-content: center;
   padding-top: 5%;
 }
-.beersList {
+.beerContainer {
   display: flex;
   justify-content: center;
 }
