@@ -1,11 +1,22 @@
 <template>
   <div class="beerContainer">
-    <h3 class="text">Yeast</h3>
-    <div v-for="beer in indexCategories" :beer="beer" :key="beer.id">
+    <!-- <div v-for="beer in indexCategories" :beer="beer" :key="beer.id">
       <router-link :to="'/categories/' + beer.ingredients.yeast" exact
         ><p>{{ beer.ingredients.yeast }}</p></router-link
       >
-    </div>
+    </div> -->
+    <b-card
+      v-for="beer in indexCategories"
+      :beer="beer"
+      :key="beer.id"
+      bg-variant="light"
+      footer="VIEW STRAIN"
+      class="text-center"
+    >
+      <router-link :to="'/categories/' + beer.ingredients.yeast" exact
+        ><b-card-text>{{ beer.ingredients.yeast }}</b-card-text></router-link
+      >
+    </b-card>
   </div>
 </template>
 
@@ -25,7 +36,6 @@ export default {
   },
   created() {
     this.fetchCategories();
-    // console.log(this.indexCategories[0].ingredients.yeast);
   }
 };
 </script>
@@ -34,11 +44,30 @@ export default {
 .beerContainer {
   display: flex;
   justify-content: center;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
 }
 
-p {
-  color: white;
+.card {
+  position: relative;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -ms-flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  min-width: 36px;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 4px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  margin: 20px;
+  min-width: 39%;
+  max-width: 30%;
+}
+
+a {
+  color: black;
 }
 </style>
