@@ -2,10 +2,9 @@
   <div class="beerContainer">
     <h3 class="text">Yeast</h3>
     <div v-for="beer in indexCategories" :beer="beer" :key="beer.id">
-        <p>{{beer.ingredients.yeast}}</p>
+        <router-link :to="'/categories/' + beer.ingredients.yeast" exact
+          ><p>{{beer.ingredients.yeast}}</p></router-link>
     </div>
-    <h5 class="text">Press the button and discover your next favourite beer</h5>
-    <b-button @click="fetchRandomBeer()">Discover</b-button>
   </div>
 </template>
 
@@ -18,7 +17,7 @@ export default {
     beer: Object
   },
   methods: {
-    ...mapActions(["fetchforYeast"]),
+    ...mapActions(["fetchCategories"]),
   },
   computed: {
     ...mapGetters(["indexCategories"])

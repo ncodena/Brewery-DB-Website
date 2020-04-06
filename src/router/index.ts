@@ -35,18 +35,18 @@ const routes = [
       )
   },
   {
-    path: "/beers/:id",
-    name: "BeerDetails",
-    props: true,
-    component: () =>
-      import(/* webpackChunkName: "BeerDetails" */ "../views/BeerDetails.vue")
-  },
-  {
     path: "/categories/:yeast",
     name: "YeastView",
     props: true,
     component: () =>
       import(/* webpackChunkName: "BeerDetails" */ "../views/YeastView.vue")
+  },
+  {
+    path: "/beers/:id",
+    name: "BeerDetails",
+    props: true,
+    component: () =>
+      import(/* webpackChunkName: "BeerDetails" */ "../views/BeerDetails.vue")
   }
 ];
 
