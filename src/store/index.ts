@@ -91,7 +91,13 @@ export default new Vuex.Store({
   
         .then(response => response);
       console.log("from store", response.data);
-      commit("setCategories", response.data);
+      let filteredData = Array.from(new Set(response.data.map(yeast => yeast.ingredients.yeast)))
+      .map(ingredients => {
+        return response.data.find(yeast => yeast.ingredients.yeast === ingredients)
+      })
+      
+      commit("setCategories", filteredData);
+      console.log("from filteredata", filteredData)
     }
   }
   
