@@ -2,8 +2,9 @@
   <div class="beerContainer">
     <h3 class="text">Yeast</h3>
     <div v-for="beer in indexCategories" :beer="beer" :key="beer.id">
-        <router-link :to="'/categories/' + beer.ingredients.yeast" exact
-          ><p>{{beer.ingredients.yeast}}</p></router-link>
+      <router-link :to="'/categories/' + beer.ingredients.yeast" exact
+        ><p>{{ beer.ingredients.yeast }}</p></router-link
+      >
     </div>
   </div>
 </template>
@@ -17,7 +18,7 @@ export default {
     beer: Object
   },
   methods: {
-    ...mapActions(["fetchCategories"]),
+    ...mapActions(["fetchCategories"])
   },
   computed: {
     ...mapGetters(["indexCategories"])

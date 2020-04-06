@@ -6,20 +6,20 @@
 // @ is an alias to /src
 // import { mapGetters, mapActions } from "vuex";
 export default {
-  name: "YeastView",
-//   props: {
-//     beer: Object
-//   },
-//   methods: {
-//     ...mapActions(["fetchforYeast"]),
-//   },
-//   computed: {
-//     ...mapGetters(["indexCategories"])
-//   },
-//   created() {
-//     this.fetchCategories();
-//     console.log(this.indexCategories);
-//   }
+  name: "YeastView"
+  //   props: {
+  //     beer: Object
+  //   },
+  //   methods: {
+  //     ...mapActions(["fetchforYeast"]),
+  //   },
+  //   computed: {
+  //     ...mapGetters(["indexCategories"])
+  //   },
+  //   created() {
+  //     this.fetchCategories();
+  //     console.log(this.indexCategories);
+  //   }
 };
 </script>
 

@@ -32,7 +32,8 @@ export default new Vuex.Store({
     indexRelatedBeers: (state, relatedBeers) =>
       (state.relatedBeers = relatedBeers),
     setRandomBeer: (state, randomBeer) => (state.randomBeer = randomBeer),
-    setCategories: (state, categoriesBeers) => (state.categoriesBeers = categoriesBeers)
+    setCategories: (state, categoriesBeers) =>
+      (state.categoriesBeers = categoriesBeers)
     // resetState (state) {
     //   Object.assign(state)
     // }
@@ -87,18 +88,20 @@ export default new Vuex.Store({
     },
     async fetchCategories({ commit }) {
       const response = await axios
-        .get('https://api.punkapi.com/v2/beers?per_page=80')
-  
+        .get("https://api.punkapi.com/v2/beers?per_page=80")
+
         .then(response => response);
       console.log("from store", response.data);
-      let filteredData = Array.from(new Set(response.data.map(yeast => yeast.ingredients.yeast)))
-      .map(ingredients => {
-        return response.data.find(yeast => yeast.ingredients.yeast === ingredients)
-      })
-      
+      const filteredData = Array.from(
+        new Set(response.data.map(yeast => yeast.ingredients.yeast))
+      ).map(ingredients => {
+        return response.data.find(
+          yeast => yeast.ingredients.yeast === ingredients
+        );
+      });
+
       commit("setCategories", filteredData);
-      console.log("from filteredata", filteredData)
+      console.log("from filteredata", filteredData);
     }
   }
-  
 });

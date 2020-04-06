@@ -8,7 +8,11 @@
           <b-nav-item
             ><router-link to="/">{{ home }}</router-link></b-nav-item
           >
-          <b-nav-item><router-link to="/beers/categories">{{ categories }}</router-link></b-nav-item>
+          <b-nav-item
+            ><router-link to="/beers/categories">{{
+              categories
+            }}</router-link></b-nav-item
+          >
           <b-nav-item
             ><router-link to="/beers/randomizer">{{
               random
