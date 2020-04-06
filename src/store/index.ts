@@ -89,14 +89,8 @@ export default new Vuex.Store({
       const response = await axios
         .get('https://api.punkapi.com/v2/beers?per_page=80')
   
-        .then(async response => {
-          const yeast = response.data[0].ingredients.yeast;
-          return await axios.get(
-            `https://api.punkapi.com/v2/beers?per_page=80&yeast=${yeast}`
-          );
-        })
         .then(response => response);
-      console.log(response.data);
+      console.log("from store", response.data);
       commit("setCategories", response.data);
     }
   }
