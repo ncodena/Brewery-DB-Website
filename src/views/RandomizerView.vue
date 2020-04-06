@@ -41,6 +41,6 @@ export default {
 }
 
 .text {
-  // color: white;
+  color: white;
 }
 </style>

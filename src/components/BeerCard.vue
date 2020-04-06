@@ -72,7 +72,7 @@ export default {
   min-height: 40%;
 }
 .defaultImage {
-  max-width: 160%;
+  max-width: 200%;
   min-height: 63%;
 }
 .intro:hover .container {
@@ -90,10 +90,12 @@ export default {
 }
 
 h6 {
-  width: 130%;
+  width: 180%;
   display: flex;
   justify-content: center;
   font-size: 1em;
+  flex-direction: column;
+  align-items: center;
 }
 
 .overlay {
