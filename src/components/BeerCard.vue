@@ -98,6 +98,10 @@ h6 {
   align-items: center;
 }
 
+h3 {
+  font-size: 1.55rem;
+}
+
 .overlay {
   position: absolute;
   top: 0;

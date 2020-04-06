@@ -23,7 +23,7 @@
       </div>
       <div class="description">
         <h5>First Brewed: {{ beer.first_brewed }}</h5>
-        <h6>{{ beer.ingredients.yeast }}</h6>
+        <h6 class="info">{{ beer.ingredients.yeast }}</h6>
         <p class="info">{{ beer.description }}</p>
         <section class="properties">
           <div class="property">
@@ -32,11 +32,11 @@
               <i
                 class="far fa-question-circle"
                 v-b-tooltip.hover
-                title="A standard measure of how much alcohol (ethanol) is contained in a given
+                title="Alcohol By Volume (abbreviated ABV) is the standard measure of how much alcohol (ethanol) is contained in a given
         volume of an alcoholic beverage (expressed as a volume percent)."
               ></i>
             </h5>
-            <h5>{{ beer.abv }}</h5>
+            <h5>{{ beer.abv }}%</h5>
           </div>
 
           <div class="property">
@@ -60,7 +60,7 @@
               <i
                 class="far fa-question-circle"
                 v-b-tooltip.hover
-                title="It is the gauge of beer's bitterness. What IBUs measure are the parts
+                title="The International Bittering Units scale, or simply IBU scale. It is the gauge of beer's bitterness. What IBUs measure are the parts
         per million of isohumulone found in a beer, the acid found in hops that
         gives beer its bitter bite."
               ></i>
@@ -176,7 +176,7 @@ h6 {
   color: white;
 }
 .info {
-  font-size: 25px;
+  font-size: 20px;
   text-align: justify;
 }
 .imageContainer {
