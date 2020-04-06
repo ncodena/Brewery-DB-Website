@@ -31,7 +31,7 @@ export default {
   align-items: center;
 }
 
-p {
+h1 {
   color: white;
 }
 </style>

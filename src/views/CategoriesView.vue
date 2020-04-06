@@ -24,7 +24,7 @@ export default {
   },
   created() {
     this.fetchCategories();
-    console.log(this.indexCategories);
+    // console.log(this.indexCategories[0].ingredients.yeast);
   }
 };
 </script>
