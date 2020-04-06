@@ -17,6 +17,15 @@ const routes = [
   //     import(/* webpackChunkName: "about" */ "../views/About.vue")
   // },
   {
+    path: "/beers/categories",
+    name: "CategoriesView",
+    props: true,
+    component: () =>
+      import(
+        /* webpackChunkName: "RandomizerView" */ "../views/CategoriesView.vue"
+      )
+  },
+  {
     path: "/beers/randomizer",
     name: "RandomizerView",
     props: true,
