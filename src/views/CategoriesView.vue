@@ -18,13 +18,13 @@ export default {
     beer: Object
   },
   methods: {
-    ...mapActions(["fetchforYeast"])
+    ...mapActions(["fetchforYeast"]),
   },
   computed: {
     ...mapGetters(["indexCategories"])
   },
   created() {
-    this.fetchforYeast();
+    this.fetchCategories();
     console.log(this.indexCategories);
   }
 };
@@ -38,7 +38,7 @@ export default {
   align-items: center;
 }
 
-.text {
+p {
   color: white;
 }
 </style>

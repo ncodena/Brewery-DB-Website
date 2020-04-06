@@ -85,7 +85,7 @@ export default new Vuex.Store({
 
       commit("setRandomBeer", response.data);
     },
-    async fetchforYeast({ commit }) {
+    async fetchCategories({ commit }) {
       const response = await axios
         .get('https://api.punkapi.com/v2/beers?per_page=80')
   
