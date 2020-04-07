@@ -16,7 +16,8 @@ export default new Vuex.Store({
     beer: {},
     relatedBeers: [],
     randomBeer: {},
-    categoriesBeers: []
+    categoriesBeers: [],
+    beersByCategory: []
   },
 
   getters: {
@@ -24,7 +25,8 @@ export default new Vuex.Store({
     detailsBeer: state => state.beer,
     indexRelatedBeers: state => state.relatedBeers,
     randomData: state => state.randomBeer,
-    indexCategories: state => state.categoriesBeers
+    indexCategories: state => state.categoriesBeers,
+    indexBeersByCategory: state => state.beersByCategory
   },
   mutations: {
     setBeers: (state, beers) => (state.beers = beers),
@@ -33,7 +35,8 @@ export default new Vuex.Store({
       (state.relatedBeers = relatedBeers),
     setRandomBeer: (state, randomBeer) => (state.randomBeer = randomBeer),
     setCategories: (state, categoriesBeers) =>
-      (state.categoriesBeers = categoriesBeers)
+      (state.categoriesBeers = categoriesBeers),
+    setBeersByCategory: (state, beersByCategory) => (state.beersByCategory = beersByCategory)
     // resetState (state) {
     //   Object.assign(state)
     // }
@@ -101,7 +104,14 @@ export default new Vuex.Store({
       });
 
       commit("setCategories", filteredData);
-      console.log("from filteredata", filteredData);
-    }
+    },
+    async fetchBeersCategory({ commit }, yeast) {
+      const response = await axios
+        .get(`https://api.punkapi.com/v2/beers?per_page=80&yeast=${yeast}`)
+
+        .then(response => response);
+      console.log(response.data);
+      commit("setBeersByCategory", response.data);
+    },
   }
 });
