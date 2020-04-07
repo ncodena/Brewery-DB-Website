@@ -27,11 +27,6 @@
       </p>
     </div>
     <div class="beerContainer">
-      <!-- <div v-for="beer in indexCategories" :beer="beer" :key="beer.id">
-      <router-link :to="'/categories/' + beer.ingredients.yeast" exact
-        ><p>{{ beer.ingredients.yeast }}</p></router-link
-      >
-    </div> -->
       <b-card
         v-for="beer in indexCategories"
         :beer="beer"
@@ -85,6 +80,7 @@ export default {
 
 .text {
   margin: 2px 50px 2px 50px;
+  font-size: 20px;
 }
 
 .card {
@@ -107,7 +103,31 @@ export default {
   max-width: 30%;
 }
 
+.card:hover .card-body{
+  background-color: black;
+  color: white;
+}
+
+.card:hover a {
+  color: white;
+}
+
 a {
   color: black;
+}
+
+@media (max-width: 700px) {
+  .text {
+    font-size: 12px;
+  }
+  .card {
+    min-height: 20vh;
+}
+
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 }
 </style>
