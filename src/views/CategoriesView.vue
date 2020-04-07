@@ -103,7 +103,7 @@ export default {
   max-width: 30%;
 }
 
-.card:hover .card-body{
+.card:hover .card-body {
   background-color: black;
   color: white;
   transition: 0.5s ease;
@@ -123,7 +123,7 @@ a {
   }
   .card {
     min-height: 20vh;
-}
+  }
 
   .card-body {
     display: flex;

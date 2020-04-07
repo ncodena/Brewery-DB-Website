@@ -1,19 +1,25 @@
 <template>
-<div class="mainContainer">
-  <div class="sortContainer">
+  <div class="mainContainer">
+    <div class="sortContainer">
       <div class="sortGroup">
         <h4>Sort by:</h4>
         <b-button @click="sortBy('name')">Name</b-button>
         <b-button @click="sortBy('abv')">Alcohol Volume</b-button>
       </div>
+      <div class="inputGroup">
+        <b-form-input
+          v-model="text"
+          placeholder="Search by name"
+        ></b-form-input>
+      </div>
     </div>
-  <div class="beersList">
-    <beer-card
-      v-for="beer in indexBeersByCategory"
-      :beer="beer"
-      :key="beer.id"
-    />
-  </div>
+    <div class="beersList">
+      <beer-card
+        v-for="beer in indexBeersByCategory"
+        :beer="beer"
+        :key="beer.id"
+      />
+    </div>
   </div>
 </template>
 
@@ -59,6 +65,8 @@ export default {
   width: 100%;
   justify-content: center;
   color: white;
+  flex-direction: column;
+  align-items: center;
 }
 
 .sortGroup {
@@ -68,7 +76,9 @@ export default {
   flex-direction: row;
   align-items: center;
 }
-
+.inputGroup {
+  padding-top: 30px;
+}
 .beersList {
   display: flex;
   justify-content: center;
@@ -79,13 +89,13 @@ h1 {
   color: white;
 }
 
- @media (max-width: 700px) {
-    .sortGroup {
-      flex-direction: column;
-      height: 30vh;
-      justify-content: space-around;
-      align-items: center;
-      width: 50%;
-    }
+@media (max-width: 700px) {
+  .sortGroup {
+    flex-direction: column;
+    height: 30vh;
+    justify-content: space-around;
+    align-items: center;
+    width: 50%;
   }
+}
 </style>

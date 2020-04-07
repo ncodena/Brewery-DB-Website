@@ -15,7 +15,9 @@
       />
     </div>
     <div class="container">
-      <h6 class="info"><strong>{{ beer.name }}</strong></h6>
+      <h6 class="info">
+        <strong>{{ beer.name }}</strong>
+      </h6>
       <h6 class="info">{{ beer.first_brewed }}</h6>
       <h6 class="info">{{ beer.abv }}%</h6>
     </div>

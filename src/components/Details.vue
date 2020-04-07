@@ -27,8 +27,8 @@
         <p class="info">{{ beer.description }}</p>
         <section class="properties">
           <div class="property">
-            <h5><strong>
-              ABV </strong> 
+            <h5>
+              <strong> ABV </strong>
               <i
                 class="far fa-question-circle"
                 v-b-tooltip.hover
@@ -40,8 +40,8 @@
           </div>
 
           <div class="property">
-            <h5><strong>
-              OG </strong>
+            <h5>
+              <strong> OG </strong>
               <i
                 class="far fa-question-circle"
                 v-b-tooltip.hover
@@ -55,8 +55,8 @@
           </div>
 
           <div class="property">
-            <h5><strong>
-              IBU </strong>
+            <h5>
+              <strong> IBU </strong>
               <i
                 class="far fa-question-circle"
                 v-b-tooltip.hover
