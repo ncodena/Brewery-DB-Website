@@ -1,34 +1,42 @@
 <template>
-  <h1>hello from yeast view</h1>
+<div class="beersList">
+  <beer-card v-for="beer in indexBeersByCategory"
+          :beer="beer"
+          :key="beer.id"/>
+</div>
 </template>
 
 <script>
 // @ is an alias to /src
-// import { mapGetters, mapActions } from "vuex";
+import { mapGetters, mapActions } from "vuex";
+import BeerCard from "@/components/BeerCard.vue";
 export default {
-  name: "YeastView"
-  //   props: {
-  //     beer: Object
-  //   },
-  //   methods: {
-  //     ...mapActions(["fetchforYeast"]),
-  //   },
-  //   computed: {
-  //     ...mapGetters(["indexCategories"])
-  //   },
-  //   created() {
-  //     this.fetchCategories();
-  //     console.log(this.indexCategories);
-  //   }
+  name: "YeastView",
+    props: {
+      beer: Object
+    },
+    methods: {
+      ...mapActions(["fetchBeersCategory"]),
+    },
+    computed: {
+      ...mapGetters(["indexBeersByCategory"])
+    },
+    created() {
+      const yeast = window.location.href.split("/").pop();
+      this.fetchBeersCategory(yeast);
+      console.log(this.indexCategories);
+    },
+    components: {
+      BeerCard
+  }
 };
 </script>
 
 <style scoped lang="scss">
-.beerContainer {
+.beersList {
   display: flex;
   justify-content: center;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
 }
 
 h1 {
