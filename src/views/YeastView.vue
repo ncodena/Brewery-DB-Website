@@ -8,17 +8,22 @@
       </div>
       <div class="inputGroup">
         <b-form-input
-          v-model="text"
+          v-model="search"
           placeholder="Search by name"
         ></b-form-input>
       </div>
     </div>
     <div class="beersList">
       <beer-card
-        v-for="beer in indexBeersByCategory"
+        v-for="beer in filteredData"
         :beer="beer"
         :key="beer.id"
       />
+      <div v-if="filteredData.length == 0" class="messageContainer">
+
+        <p>NO RESULTS FOUND</p>
+
+      </div>
     </div>
   </div>
 </template>
@@ -29,6 +34,11 @@ import { mapGetters, mapActions } from "vuex";
 import BeerCard from "@/components/BeerCard.vue";
 export default {
   name: "YeastView",
+  data() {
+    return {
+      search:''
+    }
+  },
   props: {
     beer: Object
   },
@@ -40,7 +50,12 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(["indexBeersByCategory"])
+    ...mapGetters(["indexBeersByCategory"]),
+    filteredData: function() {
+      return this.indexBeersByCategory.filter((beer) => {
+        return beer.name.toLowerCase().startsWith(this.search)
+      });
+    }
   },
   created() {
     const yeast = window.location.href.split("/").pop();
@@ -79,6 +94,16 @@ export default {
 .inputGroup {
   padding-top: 30px;
 }
+
+.messageContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 326px;
+  padding-bottom: 326px;
+}
 .beersList {
   display: flex;
   justify-content: center;
@@ -89,6 +114,10 @@ h1 {
   color: white;
 }
 
+p {
+  color: white;
+}
+
 @media (max-width: 700px) {
   .sortGroup {
     flex-direction: column;
@@ -96,6 +125,11 @@ h1 {
     justify-content: space-around;
     align-items: center;
     width: 50%;
+  }
+
+  .messageContainer {
+    padding-top: 132px;
+    padding-bottom: 132px;
   }
 }
 </style>
