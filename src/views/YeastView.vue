@@ -14,15 +14,9 @@
       </div>
     </div>
     <div class="beersList">
-      <beer-card
-        v-for="beer in filteredData"
-        :beer="beer"
-        :key="beer.id"
-      />
+      <beer-card v-for="beer in filteredData" :beer="beer" :key="beer.id" />
       <div v-if="filteredData.length == 0" class="messageContainer">
-
         <p>NO RESULTS FOUND</p>
-
       </div>
     </div>
   </div>
@@ -36,8 +30,8 @@ export default {
   name: "YeastView",
   data() {
     return {
-      search:''
-    }
+      search: ""
+    };
   },
   props: {
     beer: Object
@@ -52,8 +46,8 @@ export default {
   computed: {
     ...mapGetters(["indexBeersByCategory"]),
     filteredData: function() {
-      return this.indexBeersByCategory.filter((beer) => {
-        return beer.name.toLowerCase().startsWith(this.search)
+      return this.indexBeersByCategory.filter(beer => {
+        return beer.name.toLowerCase().startsWith(this.search);
       });
     }
   },
