@@ -36,7 +36,8 @@ export default new Vuex.Store({
     setRandomBeer: (state, randomBeer) => (state.randomBeer = randomBeer),
     setCategories: (state, categoriesBeers) =>
       (state.categoriesBeers = categoriesBeers),
-    setBeersByCategory: (state, beersByCategory) => (state.beersByCategory = beersByCategory)
+    setBeersByCategory: (state, beersByCategory) =>
+      (state.beersByCategory = beersByCategory)
     // resetState (state) {
     //   Object.assign(state)
     // }
@@ -112,6 +113,6 @@ export default new Vuex.Store({
         .then(response => response);
       console.log(response.data);
       commit("setBeersByCategory", response.data);
-    },
+    }
   }
 });

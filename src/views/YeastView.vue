@@ -1,9 +1,11 @@
 <template>
-<div class="beersList">
-  <beer-card v-for="beer in indexBeersByCategory"
-          :beer="beer"
-          :key="beer.id"/>
-</div>
+  <div class="beersList">
+    <beer-card
+      v-for="beer in indexBeersByCategory"
+      :beer="beer"
+      :key="beer.id"
+    />
+  </div>
 </template>
 
 <script>
@@ -12,22 +14,22 @@ import { mapGetters, mapActions } from "vuex";
 import BeerCard from "@/components/BeerCard.vue";
 export default {
   name: "YeastView",
-    props: {
-      beer: Object
-    },
-    methods: {
-      ...mapActions(["fetchBeersCategory"]),
-    },
-    computed: {
-      ...mapGetters(["indexBeersByCategory"])
-    },
-    created() {
-      const yeast = window.location.href.split("/").pop();
-      this.fetchBeersCategory(yeast);
-      console.log(this.indexCategories);
-    },
-    components: {
-      BeerCard
+  props: {
+    beer: Object
+  },
+  methods: {
+    ...mapActions(["fetchBeersCategory"])
+  },
+  computed: {
+    ...mapGetters(["indexBeersByCategory"])
+  },
+  created() {
+    const yeast = window.location.href.split("/").pop();
+    this.fetchBeersCategory(yeast);
+    console.log(this.indexCategories);
+  },
+  components: {
+    BeerCard
   }
 };
 </script>
