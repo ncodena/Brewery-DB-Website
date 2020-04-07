@@ -27,8 +27,8 @@
         <p class="info">{{ beer.description }}</p>
         <section class="properties">
           <div class="property">
-            <h5>
-              ABV
+            <h5><strong>
+              ABV </strong> 
               <i
                 class="far fa-question-circle"
                 v-b-tooltip.hover
@@ -40,8 +40,8 @@
           </div>
 
           <div class="property">
-            <h5>
-              OG
+            <h5><strong>
+              OG </strong>
               <i
                 class="far fa-question-circle"
                 v-b-tooltip.hover
@@ -55,8 +55,8 @@
           </div>
 
           <div class="property">
-            <h5>
-              IBU
+            <h5><strong>
+              IBU </strong>
               <i
                 class="far fa-question-circle"
                 v-b-tooltip.hover
@@ -165,7 +165,7 @@ export default {
   display: grid;
   grid-gap: 10px;
   grid-template-columns: repeat(2, 1fr);
-  padding: 3rem;
+  padding: 2rem;
 }
 
 h2 {
@@ -186,17 +186,16 @@ h6 {
   align-items: center;
 }
 .beerImage {
-  max-width: 100px;
+  max-width: 140px;
   min-height: 40%;
 }
 .defaultImage {
-  max-width: 220%;
-  min-height: 40%;
+  max-width: 60%;
 }
 .description {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 .properties {
   display: flex;
@@ -267,8 +266,9 @@ h6 {
 @media (max-width: 700px) {
   .intro {
     grid-template-columns: 1fr;
+    padding: 1rem 3rem 0rem 3rem;
   }
-  .beerImg {
+  .beerImage {
     max-width: 80px;
     min-height: 40%;
   }
@@ -277,8 +277,11 @@ h6 {
     min-height: 40%;
   }
   .property {
-    height: 5em;
-    width: 5em;
+    height: 7em;
+    width: 7em;
+  }
+  .description {
+    padding: 1rem 0rem 0rem 0rem;
   }
   .info {
     font-size: 15px;

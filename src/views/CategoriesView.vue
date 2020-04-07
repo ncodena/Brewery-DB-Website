@@ -106,6 +106,7 @@ export default {
 .card:hover .card-body{
   background-color: black;
   color: white;
+  transition: 0.5s ease;
 }
 
 .card:hover a {
