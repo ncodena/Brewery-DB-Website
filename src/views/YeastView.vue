@@ -1,6 +1,7 @@
 <template>
   <div class="mainContainer">
     <div class="sortContainer">
+      <h2 class="title">{{this.string}}</h2>
       <div class="sortGroup">
         <h4>Sort by:</h4>
         <b-button @click="sortBy('name')">Name</b-button>
@@ -30,7 +31,9 @@ export default {
   name: "YeastView",
   data() {
     return {
-      search: ""
+      search: "",
+      string: window.location.href.split("/").pop().split('20').join('').split('%').join(' ').split('A2').join('').split('84').join('').split('E2').join(''),
+
     };
   },
   props: {
@@ -84,6 +87,9 @@ export default {
   justify-content: space-between;
   flex-direction: row;
   align-items: center;
+}
+.title {
+  padding-bottom: 10px;
 }
 .inputGroup {
   padding-top: 30px;
