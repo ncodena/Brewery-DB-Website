@@ -1,9 +1,8 @@
 <template>
   <div class="beerContainer">
-    <h3 class="text">Your next discovery</h3>
-    <beer-card v-for="beer in randomData" :beer="beer" :key="beer.id" />
     <h5 class="text">Press the button and discover your next favourite beer</h5>
-    <b-button @click="fetchRandomBeer()">Discover</b-button>
+    <b-button class="text" @click="fetchRandomBeer()">Discover</b-button>
+    <beer-card v-for="beer in randomData" :beer="beer" :key="beer.id" />
   </div>
 </template>
 
@@ -42,5 +41,6 @@ export default {
 
 .text {
   color: white;
+  padding: 12px 10px 12px;
 }
 </style>

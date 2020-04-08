@@ -1,5 +1,8 @@
 <template>
   <div class="mainContainer">
+    <div class="buttonConta">
+      <router-link to="/beers/categories"><b-button>Back to Categories</b-button></router-link>
+    </div>
     <div class="sortContainer">
       <h2 class="title">{{this.string}}</h2>
       <div class="sortGroup">
@@ -89,12 +92,16 @@ export default {
   align-items: center;
 }
 .title {
-  padding-bottom: 10px;
+  padding-bottom: 20px;
 }
 .inputGroup {
   padding-top: 30px;
 }
 
+.buttonContainer {
+  margin-left: 18px;
+  padding-bottom: 10px;
+}
 .messageContainer {
   width: 100%;
   display: flex;
