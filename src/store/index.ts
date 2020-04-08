@@ -4,7 +4,8 @@ import axios from "axios";
 
 // const getDefaultState = () => {
 //   return {
-//     beer: {}
+//     beer: {},
+//     status: 'empty'
 //   }
 // };
 
@@ -17,7 +18,7 @@ export default new Vuex.Store({
     relatedBeers: [],
     randomBeer: {},
     categoriesBeers: [],
-    beersByCategory: []
+    beersByCategory: [],
   },
 
   getters: {
@@ -26,7 +27,8 @@ export default new Vuex.Store({
     indexRelatedBeers: state => state.relatedBeers,
     randomData: state => state.randomBeer,
     indexCategories: state => state.categoriesBeers,
-    indexBeersByCategory: state => state.beersByCategory
+    indexBeersByCategory: state => state.beersByCategory,
+
   },
   mutations: {
     setBeers: (state, beers) => (state.beers = beers),
@@ -37,16 +39,13 @@ export default new Vuex.Store({
     setCategories: (state, categoriesBeers) =>
       (state.categoriesBeers = categoriesBeers),
     setBeersByCategory: (state, beersByCategory) =>
-      (state.beersByCategory = beersByCategory)
-    // resetState (state) {
-    //   Object.assign(state)
-    // }
+      (state.beersByCategory = beersByCategory),
+    resetState: (state, beer) => Object.assign(state, beer)
   },
   actions: {
-    // resetState ({commit}){
-    //   commit('resetState')
-    // },
-
+    resetState ({commit}){
+      commit('resetState')
+    },
     async fetchBeers({ commit }) {
       const response = await axios
         .get("https://api.punkapi.com/v2/beers?page=10")

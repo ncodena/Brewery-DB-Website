@@ -27,7 +27,8 @@ export default {
   },
   methods: {
     ...mapActions(["fetchBeer"]),
-    ...mapActions(["fetchRelated"])
+    ...mapActions(["fetchRelated"]),
+    ...mapActions(["resetState"])
   },
   computed: {
     ...mapGetters(["detailsBeer"]),
@@ -37,6 +38,13 @@ export default {
     const id = window.location.href.split("/").pop();
     this.fetchBeer(id);
     this.fetchRelated(id);
+  },
+  beforeUpdate() {
+    this.resetState();
+    const id = window.location.href.split("/").pop();
+    this.fetchBeer(id);
+    this.fetchRelated(id);
+    return
   },
   components: {
     Details,

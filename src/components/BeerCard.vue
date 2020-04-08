@@ -44,10 +44,14 @@
 <script>
 // @ is an alias to /src
 // import Menu from "@/components/Menu.vue";
+import { mapActions } from "vuex";
 export default {
   name: "Home",
   props: {
     beer: Object
+  },
+  methods: {
+    ...mapActions(["fetchBeer"])
   }
   //   created(){
   //     console.log(this.beer)
