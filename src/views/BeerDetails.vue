@@ -1,7 +1,7 @@
 <template>
   <div class="beerDetails">
-    <Details v-for="beer in detailsBeer" :beer="beer" :key="beer.id"/>
-
+    <div v-if="isLoading">LOADING</div>
+    <Details v-else v-for="beer in detailsBeer" :beer="beer" :key="beer.id"/>
     <div class="recommendations">
       <h2>Similar</h2>
       <div class="beersList">
@@ -19,7 +19,7 @@
 // @ is an alias to /src
 import Details from "@/components/Details.vue";
 import BeerCard from "@/components/BeerCard.vue";
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters, mapActions, mapState } from "vuex";
 export default {
   name: "BeerDetails",
   props: {
@@ -31,7 +31,10 @@ export default {
   },
   computed: {
     ...mapGetters(["detailsBeer"]),
-    ...mapGetters(["indexRelatedBeers"])
+    ...mapGetters(["indexRelatedBeers"]),
+    ...mapState({
+      isLoading: state=> state.isLoading
+    })
   },
   created() {
     const id = window.location.href.split("/").pop();
