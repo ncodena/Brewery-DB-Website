@@ -2,13 +2,6 @@ import Vue from "vue";
 import Vuex from "vuex";
 import axios from "axios";
 
-// const getDefaultState = () => {
-//   return {
-//     beer: {},
-//     status: 'empty'
-//   }
-// };
-
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -33,7 +26,8 @@ export default new Vuex.Store({
   },
   mutations: {
     setBeers: (state, beers) => (state.beers = beers),
-    loadingDetailsBeer: state => state.isLoading = true,
+    loading: state => state.isLoading = true,
+    loadingCompleted: state => state.isLoading = false,
     detailsBeer: (state, beer) => (state.beer = beer),
     indexRelatedBeers: (state, relatedBeers) =>
       (state.relatedBeers = relatedBeers),
@@ -45,9 +39,6 @@ export default new Vuex.Store({
     resetState: (state, beer) => (state.beer = beer)
   },
   actions: {
-    resetState ({commit}){
-      commit('resetState')
-    },
     async fetchBeers({ commit }) {
       const response = await axios
         .get("https://api.punkapi.com/v2/beers?page=10")
@@ -58,7 +49,7 @@ export default new Vuex.Store({
     },
 
     async fetchBeer({ commit }, id) {
-      commit("loadingDetailsBeer")
+      commit("loading")
       const response = await axios
 
         .get(`https://api.punkapi.com/v2/beers?ids=${id}`)
@@ -66,6 +57,7 @@ export default new Vuex.Store({
         .then(response => response);
 
       commit("detailsBeer", response.data);
+      commit("loadingCompleted")
     },
 
     async fetchRelated({ commit }, id) {
