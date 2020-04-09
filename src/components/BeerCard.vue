@@ -29,7 +29,7 @@
         </b-card-text>
         <h3 class="info">{{ beer.ingredients.yeast }}</h3>
         <router-link :to="'/beers/' + beer.id" exact
-          ><b-button>Details</b-button></router-link
+          ><b-button @click="fetchBeer(beer.id)">Details</b-button></router-link
         >
       </div>
     </div>
@@ -51,11 +51,8 @@ export default {
     beer: Object
   },
   methods: {
-    ...mapActions(["fetchBeer"])
+    ...mapActions(["fetchBeer"]),
   }
-  //   created(){
-  //     console.log(this.beer)
-  //   }
 };
 </script>
 

@@ -19,7 +19,7 @@ export default new Vuex.Store({
     randomBeer: {},
     categoriesBeers: [],
     beersByCategory: [],
-    isLoading: true
+    isLoading: false
   },
 
   getters: {
@@ -33,7 +33,7 @@ export default new Vuex.Store({
   },
   mutations: {
     setBeers: (state, beers) => (state.beers = beers),
-    loadingDetailsBeer: state => state.isLoading,
+    loadingDetailsBeer: state => state.isLoading = true,
     detailsBeer: (state, beer) => (state.beer = beer),
     indexRelatedBeers: (state, relatedBeers) =>
       (state.relatedBeers = relatedBeers),
