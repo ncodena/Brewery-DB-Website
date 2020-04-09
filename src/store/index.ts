@@ -40,7 +40,7 @@ export default new Vuex.Store({
       (state.categoriesBeers = categoriesBeers),
     setBeersByCategory: (state, beersByCategory) =>
       (state.beersByCategory = beersByCategory),
-    resetState: (state, beer) => Object.assign(state, beer)
+    resetState: (state, beer) => (state.beer = beer)
   },
   actions: {
     resetState ({commit}){

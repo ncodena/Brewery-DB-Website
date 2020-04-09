@@ -40,12 +40,25 @@ export default {
     this.fetchRelated(id);
   },
   beforeUpdate() {
-    this.resetState();
+    // called when the route that renders this component has changed,
+    // but this component is reused in the new route.
+    // For example, for a route with dynamic params `/foo/:id`, when we
+    // navigate between `/foo/1` and `/foo/2`, the same `Foo` component instance
+    // will be reused, and this hook will be called when that happens.
+    // has access to `this` component instance.
+
     const id = window.location.href.split("/").pop();
     this.fetchBeer(id);
     this.fetchRelated(id);
     return
   },
+  // beforeUpdate() {
+  //   this.resetState();
+  //   const id = window.location.href.split("/").pop();
+  //   this.fetchBeer(id);
+  //   this.fetchRelated(id);
+  //   return
+  // },
   components: {
     Details,
     BeerCard
