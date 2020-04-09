@@ -9,7 +9,7 @@
     <!-- <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> -->
     <div class="view">
-      <router-view :key="$route.params.id"/>
+      <router-view :key="$route.params.id" />
     </div>
     <Footer />
   </div>

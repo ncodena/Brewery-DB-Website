@@ -46,7 +46,7 @@ const routes = [
     name: "BeerDetails",
     props: true,
     component: () =>
-      import(/* webpackChunkName: "BeerDetails" */ "../views/BeerDetails.vue"),
+      import(/* webpackChunkName: "BeerDetails" */ "../views/BeerDetails.vue")
   }
 ];
 

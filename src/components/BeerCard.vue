@@ -1,5 +1,5 @@
 <template>
-    <section class="intro" :key="beer.id">
+  <section class="intro" :key="beer.id">
     <div class="container">
       <img
         v-if="beer.image_url"
@@ -51,7 +51,7 @@ export default {
     beer: Object
   },
   methods: {
-    ...mapActions(["fetchBeer"]),
+    ...mapActions(["fetchBeer"])
   }
 };
 </script>

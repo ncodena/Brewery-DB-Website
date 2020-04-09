@@ -1,7 +1,7 @@
 <template>
   <div class="beerDetails">
     <div v-if="isLoading">LOADING</div>
-    <Details v-else v-for="beer in detailsBeer" :beer="beer" :key="beer.id"/>
+    <Details v-else v-for="beer in detailsBeer" :beer="beer" :key="beer.id" />
     <div class="recommendations">
       <h2>Similar</h2>
       <div class="beersList">
@@ -33,7 +33,7 @@ export default {
     ...mapGetters(["detailsBeer"]),
     ...mapGetters(["indexRelatedBeers"]),
     ...mapState({
-      isLoading: state=> state.isLoading
+      isLoading: state => state.isLoading
     })
   },
   created() {
@@ -42,11 +42,11 @@ export default {
     this.fetchRelated(id);
   },
   watch: {
-    '$route.params.id': function () {
+    "$route.params.id": function() {
       const id = window.location.href.split("/").pop();
       this.fetchBeer(id);
       this.fetchRelated(id);
-      console.log(id)
+      console.log(id);
     }
   },
   components: {
