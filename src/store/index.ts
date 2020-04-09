@@ -19,6 +19,7 @@ export default new Vuex.Store({
     randomBeer: {},
     categoriesBeers: [],
     beersByCategory: [],
+    isLoading: true
   },
 
   getters: {
@@ -32,6 +33,7 @@ export default new Vuex.Store({
   },
   mutations: {
     setBeers: (state, beers) => (state.beers = beers),
+    loadingDetailsBeer: state => state.isLoading,
     detailsBeer: (state, beer) => (state.beer = beer),
     indexRelatedBeers: (state, relatedBeers) =>
       (state.relatedBeers = relatedBeers),
@@ -56,6 +58,7 @@ export default new Vuex.Store({
     },
 
     async fetchBeer({ commit }, id) {
+      commit("loadingDetailsBeer")
       const response = await axios
 
         .get(`https://api.punkapi.com/v2/beers?ids=${id}`)

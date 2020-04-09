@@ -1,6 +1,6 @@
 <template>
   <div class="beerDetails">
-    <Details v-for="beer in detailsBeer" :beer="beer" :key="beer.id" />
+    <Details v-for="beer in detailsBeer" :beer="beer" :key="beer.id"/>
 
     <div class="recommendations">
       <h2>Similar</h2>
@@ -27,8 +27,7 @@ export default {
   },
   methods: {
     ...mapActions(["fetchBeer"]),
-    ...mapActions(["fetchRelated"]),
-    ...mapActions(["resetState"])
+    ...mapActions(["fetchRelated"])
   },
   computed: {
     ...mapGetters(["detailsBeer"]),
@@ -39,26 +38,14 @@ export default {
     this.fetchBeer(id);
     this.fetchRelated(id);
   },
-  beforeUpdate() {
-    // called when the route that renders this component has changed,
-    // but this component is reused in the new route.
-    // For example, for a route with dynamic params `/foo/:id`, when we
-    // navigate between `/foo/1` and `/foo/2`, the same `Foo` component instance
-    // will be reused, and this hook will be called when that happens.
-    // has access to `this` component instance.
-
-    const id = window.location.href.split("/").pop();
-    this.fetchBeer(id);
-    this.fetchRelated(id);
-    return
+  watch: {
+    '$route.params.id': function () {
+      const id = window.location.href.split("/").pop();
+      this.fetchBeer(id);
+      this.fetchRelated(id);
+      console.log(id)
+    }
   },
-  // beforeUpdate() {
-  //   this.resetState();
-  //   const id = window.location.href.split("/").pop();
-  //   this.fetchBeer(id);
-  //   this.fetchRelated(id);
-  //   return
-  // },
   components: {
     Details,
     BeerCard
