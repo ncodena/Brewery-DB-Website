@@ -6,7 +6,7 @@
     <div v-else class="recommendations">
       <h2>Similar</h2>
       <div class="beersList">
-        <beer-card 
+        <beer-card
           v-for="beer in indexRelatedBeers"
           :beer="beer"
           :key="beer.id"

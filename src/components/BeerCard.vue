@@ -57,7 +57,6 @@ export default {
       await this.fetchBeer(props);
       await this.fetchRelated(props);
     }
-
   }
 };
 </script>

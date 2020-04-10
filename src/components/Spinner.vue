@@ -1,6 +1,6 @@
 <template>
   <div class="spinner">
-      <img src="@/assets/spinner.gif" alt="spinner" class="spinner">
+    <img src="@/assets/spinner.gif" alt="spinner" class="spinner" />
   </div>
 </template>
 
@@ -8,9 +8,6 @@
 import { Component, Vue } from "vue-property-decorator";
 
 @Component
-export default class HelloWorld extends Vue {
-}
+export default class HelloWorld extends Vue {}
 </script>
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>
