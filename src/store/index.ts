@@ -60,6 +60,7 @@ export default new Vuex.Store({
     },
 
     async fetchRelated({ commit }, id) {
+      commit("loading");
       const response = await axios
         .get(`https://api.punkapi.com/v2/beers?ids=${id}`)
 
@@ -72,6 +73,7 @@ export default new Vuex.Store({
         .then(response => response);
       console.log(response.data);
       commit("indexRelatedBeers", response.data);
+      commit("loadingCompleted");
     },
 
     async fetchRandomBeer({ commit }) {

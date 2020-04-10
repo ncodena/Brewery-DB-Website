@@ -4,8 +4,9 @@
     <Details v-else v-for="beer in detailsBeer" :beer="beer" :key="beer.id" />
     <div class="recommendations">
       <h2>Similar</h2>
-      <div class="beersList">
-        <beer-card
+      <div v-if="isLoading">LOADING</div>
+      <div v-else class="beersList">
+        <beer-card 
           v-for="beer in indexRelatedBeers"
           :beer="beer"
           :key="beer.id"
@@ -40,14 +41,6 @@ export default {
     const id = window.location.href.split("/").pop();
     await this.fetchBeer(id);
     await this.fetchRelated(id);
-  },
-  watch: {
-    "$route.params.id": function() {
-      const id = window.location.href.split("/").pop();
-      this.fetchBeer(id);
-      this.fetchRelated(id);
-      console.log(id);
-    }
   },
   components: {
     Details,
