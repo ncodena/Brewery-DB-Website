@@ -36,10 +36,10 @@ export default {
       isLoading: state => state.isLoading
     })
   },
-  created() {
+  async created() {
     const id = window.location.href.split("/").pop();
-    this.fetchBeer(id);
-    this.fetchRelated(id);
+    await this.fetchBeer(id);
+    await this.fetchRelated(id);
   },
   watch: {
     "$route.params.id": function() {
