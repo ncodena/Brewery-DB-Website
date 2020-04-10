@@ -39,12 +39,14 @@ export default new Vuex.Store({
   },
   actions: {
     async fetchBeers({ commit }) {
+      commit("loading");
       const response = await axios
         .get("https://api.punkapi.com/v2/beers?page=10")
 
         .then(response => response);
 
       commit("setBeers", response.data);
+      commit("loadingCompleted");
     },
 
     async fetchBeer({ commit }, id) {
@@ -77,6 +79,7 @@ export default new Vuex.Store({
     },
 
     async fetchRandomBeer({ commit }) {
+      commit("loading");
       const response = await axios
         .get("https://api.punkapi.com/v2/beers/random")
 
@@ -84,8 +87,10 @@ export default new Vuex.Store({
       console.log(response.data);
 
       commit("setRandomBeer", response.data);
+      commit("loadingCompleted");
     },
     async fetchCategories({ commit }) {
+      commit("loading");
       const response = await axios
         .get("https://api.punkapi.com/v2/beers?per_page=80")
 
@@ -100,14 +105,17 @@ export default new Vuex.Store({
       });
 
       commit("setCategories", filteredData);
+      commit("loadingCompleted");
     },
     async fetchBeersCategory({ commit }, yeast) {
+      commit("loading");
       const response = await axios
         .get(`https://api.punkapi.com/v2/beers?per_page=80&yeast=${yeast}`)
 
         .then(response => response);
       console.log(response.data);
       commit("setBeersByCategory", response.data);
+      commit("loadingCompleted");
     }
   }
 });

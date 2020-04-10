@@ -1,11 +1,11 @@
 <template>
   <div class="beerDetails">
-    <div v-if="isLoading">LOADING</div>
+    <div v-if="isLoading"></div>
     <Details v-else v-for="beer in detailsBeer" :beer="beer" :key="beer.id" />
-    <div class="recommendations">
+    <div v-if="isLoading"></div>
+    <div v-else class="recommendations">
       <h2>Similar</h2>
-      <div v-if="isLoading">LOADING</div>
-      <div v-else class="beersList">
+      <div class="beersList">
         <beer-card 
           v-for="beer in indexRelatedBeers"
           :beer="beer"
@@ -20,6 +20,7 @@
 // @ is an alias to /src
 import Details from "@/components/Details.vue";
 import BeerCard from "@/components/BeerCard.vue";
+// import Spinner from "@/components/Spinner.vue";
 import { mapGetters, mapActions, mapState } from "vuex";
 export default {
   name: "BeerDetails",
