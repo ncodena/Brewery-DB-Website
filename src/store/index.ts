@@ -69,12 +69,20 @@ export default new Vuex.Store({
         .then(async response => {
           const yeast = response.data[0].ingredients.yeast;
           return await axios.get(
-            `https://api.punkapi.com/v2/beers?per_page=3&yeast=${yeast}`
+            `https://api.punkapi.com/v2/beers?per_page=4&yeast=${yeast}`
           );
         })
         .then(response => response);
-      console.log(response.data);
-      commit("indexRelatedBeers", response.data);
+      
+      const filteredData = response.data.filter(function(beer) {
+        return beer.id != id
+      });
+
+      // if(filteredData.length > 3){
+      //   return filteredData.pop()
+      // };
+      console.log("2ndfiltered", filteredData);
+      commit("indexRelatedBeers", filteredData);
       commit("loadingCompleted");
     },
 
