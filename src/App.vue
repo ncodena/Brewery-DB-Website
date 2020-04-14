@@ -15,15 +15,18 @@
   </div>
 </template>
 
-<script>
-import Menu from "@/components/Menu";
-import Footer from "@/components/Footer";
-export default {
+<script lang="ts">
+import Vue from 'vue';
+import Menu from "@/components/Menu.vue";
+import Footer from "@/components/Footer.vue";
+
+export default Vue.extend({
+  name: 'App',
   components: {
     Menu,
     Footer
   }
-};
+});
 </script>
 
 <style lang="scss">
@@ -49,16 +52,4 @@ export default {
   background: rgba(0, 0, 0, 0.6);
 }
 
-// #nav {
-//   padding: 30px;
-
-//   a {
-//     font-weight: bold;
-//     color: #2c3e50;
-
-//     &.router-link-exact-active {
-//       color: #42b983;
-//     }
-//   }
-// }
 </style>
