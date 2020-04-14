@@ -84,7 +84,10 @@ export default new Vuex.Store({
 
         for (let i = 0; i < 3; i++){
           const random = filteredData[Math.floor(Math.random() * 30 )];
-          newArray.push(random);
+
+          if(newArray.indexOf(random) == -1){
+            newArray.push(random);
+          } 
         }
 
         return newArray
