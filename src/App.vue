@@ -16,12 +16,12 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import Vue from "vue";
 import Menu from "@/components/Menu.vue";
 import Footer from "@/components/Footer.vue";
 
 export default Vue.extend({
-  name: 'App',
+  name: "App",
   components: {
     Menu,
     Footer
@@ -51,5 +51,4 @@ export default Vue.extend({
   padding-bottom: 30px;
   background: rgba(0, 0, 0, 0.6);
 }
-
 </style>

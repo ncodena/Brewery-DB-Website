@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper" :key="beer.id">
+  <div class="wrapper" :key="beer.id" :beer="beer">
     <!-- Header -->
     <div class="header">
       <h2 class="align">{{ beer.name }}</h2>
@@ -124,23 +124,18 @@
         </div>
       </div>
     </section>
-
-    <!-- Top Container -->
   </div>
 </template>
 
-<script>
-// @ is an alias to /src
-// import Menu from "@/components/Menu.vue";
-export default {
+<script lang="ts">
+import { Vue, Component } from "vue-property-decorator";
+@Component({
   name: "Details",
   props: {
     beer: Object
   }
-  //   created(){
-  //     console.log(this.beer)
-  //   }
-};
+})
+export default class Details extends Vue {}
 </script>
 
 <style scoped lang="scss">
