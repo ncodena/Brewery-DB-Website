@@ -1,4 +1,5 @@
 import { VuexModule, Module, Mutation, Action } from 'vuex-module-decorators';
+import axios from "axios";
 
 @Module({ namespaced: true, name: 'test' })
 
@@ -19,7 +20,7 @@ class Beers extends VuexModule {
         public setBeer(beer: object): void {
             this.beer = beer
         }
-        public setRealtedBeers(relatedBeers: Array<any>): void {
+        public setRelatedBeers(relatedBeers: Array<any>): void {
             this.relatedBeers = relatedBeers
         }
         public setRandomBeer(randomBeer: object): void {
@@ -31,16 +32,112 @@ class Beers extends VuexModule {
         public setBeersByCategory(beersByCategory: Array<any>): void {
             this.beersByCategory = beersByCategory
         }
-        public setLoading(isLoading: boolean): void {
+        public setLoadingFalse(isLoading: boolean): void {
             this.isLoading = isLoading
         }
+        // public setLoadingTrue(isLoading: boolean): void {
+        //     this.isLoading => true = isLoading
+        // }
 
 
         @Action
-        public updateName(newName: string): void {
-            this.context.commit('setName', newName)
+        public async fetchBeers(): Promise<void> {
+            this.context.commit("loading");
+            const response = await axios
+              .get("https://api.punkapi.com/v2/beers?page=10")
+      
+              .then(response => response);
+
+            this.context.commit('setBeers', response.data);
+            this.context.commit('setLoadingFalse');
         }
 
+        public async fetchBeer(id: number): Promise<void> {
+            
+            const response = await axios
+      
+              .get(`https://api.punkapi.com/v2/beers?ids=${id}`)
+      
+              .then(response => response);
+      
+            this.context.commit("setBeer", response.data);
+            this.context.commit('setLoadingFalse');
+        }
+
+        public async fetchRelated(id: number): Promise<void> {
+            
+            const response = await axios
+        .get(`https://api.punkapi.com/v2/beers?ids=${id}`)
+
+        .then(async response => {
+          const yeast = response.data[0].ingredients.yeast;
+          return await axios.get(
+            `https://api.punkapi.com/v2/beers?per_page=30&yeast=${yeast}`
+          );
+        })
+        .then(response => response);
+
+        const filteredData = response.data.filter(function(beer: any, id: number) {
+            return beer.id != id;
+        });
+
+        function fethcRandomItems(filteredData: Array<any>) {
+            const newArray = [];
+
+            for (let i = 0; i < 3; i++) {
+            const random = filteredData[Math.floor(Math.random() * 30)];
+
+            if (newArray.indexOf(random) == -1) {
+                newArray.push(random);
+            }
+            }
+
+            return newArray;
+        }
+        
+            this.context.commit("setRealatedBeers", fethcRandomItems(filteredData));
+            this.context.commit('setLoadingFalse');
+    }
+
+    public async fetchRandomBeer(): Promise<void> {
+            
+        const response = await axios
+  
+        .get("https://api.punkapi.com/v2/beers/random")
+  
+          .then(response => response);
+  
+        this.context.commit("setRandomBeer", response.data);
+        this.context.commit('setLoadingFalse');
+    }
+    public async fetchCategories(): Promise<void> {
+
+        const response = await axios
+        .get("https://api.punkapi.com/v2/beers?per_page=80")
+
+        .then(response => response);
+      console.log("from store", response.data);
+      const filteredData = Array.from(
+        new Set(response.data.map(yeast => yeast.ingredients.yeast))
+      ).map(ingredients => {
+        return response.data.find(
+          yeast => yeast.ingredients.yeast === ingredients
+        );
+      });
+            
+        this.context.commit("setCategories", filteredData);
+        this.context.commit('setLoadingFalse');
+    }
+    public async fetchBeersCategory(yeast: string): Promise<void> {
+            
+        const response = await axios
+        .get(`https://api.punkapi.com/v2/beers?per_page=80&yeast=${yeast}`)
+
+        .then(response => response);
+  
+        this.context.commit("setBeersByCategory", response.data);
+        this.context.commit('setLoadingFalse');
+    }
 
 
 }
