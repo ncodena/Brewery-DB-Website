@@ -73,27 +73,30 @@ export default new Vuex.Store({
           );
         })
         .then(response => response);
-
-      const filteredData = response.data.filter(function(beer, id) {
-        return beer.id != id;
+      
+      const filteredData = response.data.filter(function(beer: any, id: number) {
+        return beer.id != id
       });
 
-      function fethcRandomItems(filteredData) {
+      function fethcRandomItems (filteredData) {
+
         const newArray = [];
 
-        for (let i = 0; i < 3; i++) {
-          const random = filteredData[Math.floor(Math.random() * 30)];
+        for (let i = 0; i < 3; i++){
+          const random = filteredData[Math.floor(Math.random() * 30 )];
 
-          if (newArray.indexOf(random) == -1) {
+          if(newArray.indexOf(random) == -1){
             newArray.push(random);
-          }
+          } 
         }
 
-        return newArray;
+        return newArray
+
       }
 
-      console.log(fethcRandomItems(filteredData));
+      console.log(fethcRandomItems(filteredData))
 
+      
       commit("indexRelatedBeers", fethcRandomItems(filteredData));
       commit("loadingCompleted");
     },

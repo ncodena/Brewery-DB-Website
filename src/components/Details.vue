@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper" :key="beer.id" :beer="beer">
+  <div class="wrapper" :key="beer.id">
     <!-- Header -->
     <div class="header">
       <h2 class="align">{{ beer.name }}</h2>
