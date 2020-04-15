@@ -141,3 +141,5 @@ class Beers extends VuexModule {
 
 
 }
+
+export default Beers;
