@@ -4,6 +4,8 @@ import axios from "axios";
 @Module({ namespaced: true, name: 'test' })
 
 class Beers extends VuexModule {
+    // State
+
     public beers: Array<any> = []
     public beer: object = {}
     public relatedBeers: Array<any> = []
@@ -12,6 +14,28 @@ class Beers extends VuexModule {
     public beersByCategory: Array<any> = []
     public isLoading: boolean = false
 
+    // Getters
+
+    get indexBeers (): any {
+        return this.beers
+    }
+    get indexDetailsBeer (): any {
+        return this.beer
+    }
+    get indexRelatedBeers (): any {
+        return this.relatedBeers
+    }
+    get indexRandomBeer (): any {
+        return this.randomBeer
+    }
+    get indexCategories (): any {
+        return this.categoriesBeers
+    }
+    get indexBeersByCategory (): any {
+        return this.beersByCategory
+    }
+
+    // Mutations
     @Mutation
         public setBeers(beers: Array<any>): void {
             this.beers = beers
