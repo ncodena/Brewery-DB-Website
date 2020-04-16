@@ -12,7 +12,7 @@ class Beers extends VuexModule {
     public randomBeer: object = {}
     public categoriesBeers: Array<any> = []
     public beersByCategory: Array<any> = []
-    public isLoading: boolean
+    public isLoading = false 
 
     // Getters
 
@@ -63,17 +63,18 @@ class Beers extends VuexModule {
             this.beersByCategory = beersByCategory
         }
         @Mutation
-        public setLoadingFalse(isLoading: boolean): void {
-            this.isLoading = isLoading
+        public setLoadingFalse(): void {
+            this.isLoading = false
         }
-        // public setLoadingTrue(isLoading: boolean): void {
-        //     this.isLoading => true = isLoading
-        // }
+        @Mutation
+        public setLoadingTrue(): void {
+            this.isLoading = true 
+        }
 
 
         @Action
         public async fetchBeers(): Promise<void> {
-            this.context.commit("loading");
+            this.context.commit("setLoadingTrue");
             const response = await axios
               .get("https://api.punkapi.com/v2/beers?page=10")
       
@@ -96,7 +97,7 @@ class Beers extends VuexModule {
         };
         @Action
         public async fetchRelated(id: number): Promise<void> {
-            
+            this.context.commit("setLoadingTrue");
             const response = await axios
         .get(`https://api.punkapi.com/v2/beers?ids=${id}`)
 
@@ -132,6 +133,7 @@ class Beers extends VuexModule {
 
     @Action
     public async fetchRandomBeer(): Promise<void> {
+        this.context.commit("setLoadingTrue");
             
         const response = await axios
   
@@ -144,6 +146,7 @@ class Beers extends VuexModule {
     }
     @Action
     public async fetchCategories(): Promise<void> {
+        this.context.commit("setLoadingTrue");
 
         const response = await axios
         .get("https://api.punkapi.com/v2/beers?per_page=80")
@@ -161,9 +164,11 @@ class Beers extends VuexModule {
       console.log(filteredData)
             
         this.context.commit("setCategories", filteredData);
+        this.context.commit('setLoadingFalse');
     }
     @Action
     public async fetchBeersCategory(yeast: string): Promise<void> {
+        this.context.commit("setLoadingTrue");
             
         const response = await axios
         .get(`https://api.punkapi.com/v2/beers?per_page=80&yeast=${yeast}`)
