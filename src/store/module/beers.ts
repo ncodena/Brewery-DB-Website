@@ -71,6 +71,7 @@ class Beers extends VuexModule {
             this.isLoading = true 
         }
 
+        // Actions
 
         @Action
         public async fetchBeers(): Promise<void> {

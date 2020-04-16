@@ -2,31 +2,27 @@
   <div class="beerContainer">
     <h5 class="text">Press the button and discover your next favourite beer</h5>
     <b-button class="text" @click="fetchRandomBeer()">Discover</b-button>
-    <beer-card v-for="beer in randomData" :beer="beer" :key="beer.id" />
+    <beer-card v-for="beer in indexRandomBeer" :beer="beer" :key="beer.id" />
   </div>
 </template>
 
-<script>
-// @ is an alias to /src
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+import { namespace } from 'vuex-class';
 import BeerCard from "@/components/BeerCard.vue";
-import { mapGetters, mapActions } from "vuex";
-export default {
-  name: "RandomizerView",
-  props: {
-    beer: Object
-  },
-  methods: {
-    ...mapActions(["fetchRandomBeer"])
-  },
-  computed: {
-    ...mapGetters(["randomData"])
-  },
-  created() {
-    this.fetchRandomBeer();
-    console.log(this.randomData);
-  },
+const beersModule = namespace('Beers');
+@Component({
   components: {
     BeerCard
+  }
+})
+export default class RandomizerView extends Vue {
+  @beersModule.Action
+  public fetchRandomBeer!: () => void;
+  @beersModule.Getter
+  public indexRandomBeer!: any;
+  mounted(): void {
+    this.fetchRandomBeer();
   }
 };
 </script>
