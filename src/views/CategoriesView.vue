@@ -42,24 +42,22 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 // @ is an alias to /src
-import { mapGetters, mapActions } from "vuex";
-export default {
-  name: "CategoriesView",
-  props: {
-    beer: Object
-  },
-  methods: {
-    ...mapActions(["fetchCategories"])
-  },
-  computed: {
-    ...mapGetters(["indexCategories"])
-  },
-  created() {
+import { Component, Vue } from 'vue-property-decorator';
+import { namespace } from 'vuex-class';
+const beersModule = namespace('Beers');
+
+@Component
+export default class CategoriesView extends Vue {
+  @beersModule.Action
+  public fetchCategories!: () => void;
+  @beersModule.Getter
+  public indexCategories!: any;
+  mounted(): void {
     this.fetchCategories();
   }
-};
+}
 </script>
 
 <style scoped lang="scss">

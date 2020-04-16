@@ -1,7 +1,7 @@
 import { VuexModule, Module, Mutation, Action } from 'vuex-module-decorators';
 import axios from "axios";
 
-@Module({ namespaced: true, name: 'test' })
+@Module({ namespaced: true })
 
 class Beers extends VuexModule {
     // State
@@ -12,7 +12,7 @@ class Beers extends VuexModule {
     public randomBeer: object = {}
     public categoriesBeers: Array<any> = []
     public beersByCategory: Array<any> = []
-    public isLoading: boolean = false
+    public isLoading: boolean
 
     // Getters
 
@@ -41,21 +41,28 @@ class Beers extends VuexModule {
             this.beers = beers
         }
 
+        @Mutation
         public setBeer(beer: object): void {
             this.beer = beer
         }
+        @Mutation
         public setRelatedBeers(relatedBeers: Array<any>): void {
             this.relatedBeers = relatedBeers
         }
+        @Mutation
         public setRandomBeer(randomBeer: object): void {
             this.randomBeer = randomBeer
         }
+        @Mutation
         public setCategories(categoriesBeers: Array<any>): void {
             this.categoriesBeers = categoriesBeers
         }
+        
+        @Mutation
         public setBeersByCategory(beersByCategory: Array<any>): void {
             this.beersByCategory = beersByCategory
         }
+        @Mutation
         public setLoadingFalse(isLoading: boolean): void {
             this.isLoading = isLoading
         }
@@ -75,7 +82,7 @@ class Beers extends VuexModule {
             this.context.commit('setBeers', response.data);
             this.context.commit('setLoadingFalse');
         }
-
+        @Action
         public async fetchBeer(id: number): Promise<void> {
             
             const response = await axios
@@ -86,8 +93,8 @@ class Beers extends VuexModule {
       
             this.context.commit("setBeer", response.data);
             this.context.commit('setLoadingFalse');
-        }
-
+        };
+        @Action
         public async fetchRelated(id: number): Promise<void> {
             
             const response = await axios
@@ -121,8 +128,9 @@ class Beers extends VuexModule {
         
             this.context.commit("setRealatedBeers", fethcRandomItems(filteredData));
             this.context.commit('setLoadingFalse');
-    }
+    };
 
+    @Action
     public async fetchRandomBeer(): Promise<void> {
             
         const response = await axios
@@ -134,6 +142,7 @@ class Beers extends VuexModule {
         this.context.commit("setRandomBeer", response.data);
         this.context.commit('setLoadingFalse');
     }
+    @Action
     public async fetchCategories(): Promise<void> {
 
         const response = await axios
@@ -148,10 +157,12 @@ class Beers extends VuexModule {
           yeast => yeast.ingredients.yeast === ingredients
         );
       });
+
+      console.log(filteredData)
             
         this.context.commit("setCategories", filteredData);
-        this.context.commit('setLoadingFalse');
     }
+    @Action
     public async fetchBeersCategory(yeast: string): Promise<void> {
             
         const response = await axios
@@ -166,4 +177,4 @@ class Beers extends VuexModule {
 
 }
 
-export default Beers;
+export default Beers
