@@ -14,30 +14,29 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import { namespace } from 'vuex-class';
+import { Component, Vue } from "vue-property-decorator";
+import { namespace } from "vuex-class";
 import BeerCard from "@/components/BeerCard.vue";
-const beersModule = namespace('Beers');
+const beersModule = namespace("Beers");
 @Component({
   components: {
     BeerCard
   }
 })
 export default class Home extends Vue {
-
   @beersModule.Action
   public fetchBeers!: () => void;
   @beersModule.Getter
   public indexBeers!: any;
   mounted(): void {
     this.fetchBeers();
-    console.log(this.indexBeers)
+    console.log(this.indexBeers);
   }
   public sortBy(prop: any): void {
-      this.indexBeers.sort((a: any, b: any) => (a[prop] < b[prop] ? -1 : 1));
-      console.log(this.indexBeers);
-    }
-};
+    this.indexBeers.sort((a: any, b: any) => (a[prop] < b[prop] ? -1 : 1));
+    console.log(this.indexBeers);
+  }
+}
 </script>
 
 <style scoped lang="scss">

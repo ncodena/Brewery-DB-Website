@@ -73,7 +73,7 @@
 //           );
 //         })
 //         .then(response => response);
-      
+
 //       const filteredData = response.data.filter(function(beer: any, id: number) {
 //         return beer.id != id
 //       });
@@ -87,7 +87,7 @@
 
 //           if(newArray.indexOf(random) == -1){
 //             newArray.push(random);
-//           } 
+//           }
 //         }
 
 //         return newArray
@@ -96,7 +96,6 @@
 
 //       console.log(fethcRandomItems(filteredData))
 
-      
 //       commit("indexRelatedBeers", fethcRandomItems(filteredData));
 //       commit("loadingCompleted");
 //     },

@@ -7,10 +7,10 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import { namespace } from 'vuex-class';
+import { Component, Vue } from "vue-property-decorator";
+import { namespace } from "vuex-class";
 import BeerCard from "@/components/BeerCard.vue";
-const beersModule = namespace('Beers');
+const beersModule = namespace("Beers");
 @Component({
   components: {
     BeerCard
@@ -24,7 +24,7 @@ export default class RandomizerView extends Vue {
   mounted(): void {
     this.fetchRandomBeer();
   }
-};
+}
 </script>
 
 <style scoped lang="scss">

@@ -6,7 +6,7 @@
       >
     </div>
     <div class="sortContainer">
-      <h2 class="title">{{ this.string }}</h2>
+      <h2 class="title">{{ this.YeastString }}</h2>
       <div class="sortGroup">
         <h4>Sort by:</h4>
         <b-button @click="sortBy('name')">Name</b-button>
@@ -28,57 +28,54 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 // @ is an alias to /src
-import { mapGetters, mapActions } from "vuex";
+import { Component, Vue } from "vue-property-decorator";
+import { namespace } from "vuex-class";
 import BeerCard from "@/components/BeerCard.vue";
-export default {
-  name: "YeastView",
-  data() {
-    return {
-      search: "",
-      string: window.location.href
-        .split("/")
-        .pop()
-        .split("20")
-        .join("")
-        .split("%")
-        .join(" ")
-        .split("A2")
-        .join("")
-        .split("84")
-        .join("")
-        .split("E2")
-        .join("")
-    };
-  },
-  props: {
-    beer: Object
-  },
-  methods: {
-    ...mapActions(["fetchBeersCategory"]),
-    sortBy(prop) {
-      this.indexBeersByCategory.sort((a, b) => (a[prop] < b[prop] ? -1 : 1));
-      console.log(this.indexBeers);
-    }
-  },
-  computed: {
-    ...mapGetters(["indexBeersByCategory"]),
-    filteredData: function() {
-      return this.indexBeersByCategory.filter(beer => {
-        return beer.name.toLowerCase().startsWith(this.search);
-      });
-    }
-  },
-  created() {
-    const yeast = window.location.href.split("/").pop();
-    this.fetchBeersCategory(yeast);
-    console.log(this.indexCategories);
-  },
+const beersModule = namespace("Beers");
+@Component({
   components: {
     BeerCard
   }
-};
+})
+export default class YeastView extends Vue {
+  public search = "";
+  public YeastString: string = window.location.href
+    .split("/")
+    .pop()
+    .split("20")
+    .join("")
+    .split("%")
+    .join(" ")
+    .split("A2")
+    .join("")
+    .split("84")
+    .join("")
+    .split("E2")
+    .join("");
+
+  @beersModule.Action
+  public fetchBeersCategory!: (yeast: string) => void;
+  @beersModule.Getter
+  public indexBeersByCategory!: any;
+  mounted(): void {
+    const yeast = window.location.href.split("/").pop();
+    this.fetchBeersCategory(yeast);
+  }
+  public sortBy(prop: any): void {
+    this.indexBeersByCategory.sort((a: any, b: any) =>
+      a[prop] < b[prop] ? -1 : 1
+    );
+    console.log(this.indexBeersByCategory);
+  }
+
+  get filteredData(): void {
+    return this.indexBeersByCategory.filter(beer => {
+      return beer.name.toLowerCase().startsWith(this.search);
+    });
+  }
+}
 </script>
 
 <style scoped lang="scss">

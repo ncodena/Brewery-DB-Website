@@ -44,9 +44,9 @@
 
 <script lang="ts">
 // @ is an alias to /src
-import { Component, Vue } from 'vue-property-decorator';
-import { namespace } from 'vuex-class';
-const beersModule = namespace('Beers');
+import { Component, Vue } from "vue-property-decorator";
+import { namespace } from "vuex-class";
+const beersModule = namespace("Beers");
 
 @Component
 export default class CategoriesView extends Vue {
