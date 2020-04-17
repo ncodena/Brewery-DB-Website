@@ -34,31 +34,31 @@
       </div>
     </div>
   </section>
-
-  <!-- </b-card> -->
-  <!-- <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" /> -->
-  <!-- <Menu brandName="Brewery DB" home="Home" categories="Our Beers" random="Discover"/> -->
 </template>
 
-<script>
+<script lang="ts">
 // @ is an alias to /src
 // import Menu from "@/components/Menu.vue";
-import { mapActions } from "vuex";
-export default {
-  name: "Home",
+import { Component, Vue } from "vue-property-decorator";
+import { namespace } from "vuex-class";
+const beersModule = namespace("Beers");
+@Component({
+  name: "Details",
   props: {
     beer: Object
-  },
-  methods: {
-    ...mapActions(["fetchBeer"]),
-    ...mapActions(["fetchRelated"]),
-    async fetchData(props) {
-      await this.fetchBeer(props);
-      await this.fetchRelated(props);
+  }
+})
+export default  class BeerCard extends Vue {
+  @beersModule.Action
+  public fetchBeer!: () => void;
+  @beersModule.Action
+  public fetchRelated!: () => void;
+
+    public async fetchData(props: any): Promise<void> {
+      await this.fetchBeer();
+      await this.fetchRelated();
     }
   }
-};
 </script>
 
 <style scoped lang="scss">

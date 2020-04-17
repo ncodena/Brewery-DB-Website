@@ -126,7 +126,7 @@ class Beers extends VuexModule {
       return newArray;
     }
 
-    this.context.commit("setRealatedBeers", fethcRandomItems(filteredData));
+    this.context.commit("setRelatedBeers", fethcRandomItems(filteredData));
     this.context.commit("setLoadingFalse");
   }
 
