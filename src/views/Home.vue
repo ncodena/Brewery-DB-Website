@@ -5,46 +5,38 @@
         <h4>Sort by:</h4>
         <b-button @click="sortBy('name')">Name</b-button>
         <b-button @click="sortBy('abv')">Alcohol Volume</b-button>
-        <b-button @click="sortBy('first_brewed')">Brewing Date</b-button>
       </div>
     </div>
     <div class="beersContainer">
       <beer-card v-for="beer in indexBeers" :beer="beer" :key="beer.id" />
     </div>
-
-    <!-- <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" /> -->
-    <!-- <Menu brandName="Brewery DB" home="Home" categories="Our Beers" random="Discover"/> -->
   </div>
 </template>
 
-<script>
-// @ is an alias to /src
-// import Menu from "@/components/Menu.vue";
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+import { namespace } from 'vuex-class';
 import BeerCard from "@/components/BeerCard.vue";
-import { mapGetters, mapActions } from "vuex";
-export default {
-  name: "Home",
-  props: {
-    beer: Object
-  },
-  methods: {
-    ...mapActions(["fetchBeers"]),
-
-    sortBy(prop) {
-      this.indexBeers.sort((a, b) => (a[prop] < b[prop] ? -1 : 1));
-      console.log(this.indexBeers);
-    }
-  },
-  computed: {
-    ...mapGetters(["indexBeers"])
-  },
-  created() {
-    this.fetchBeers();
-  },
+const beersModule = namespace('Beers');
+@Component({
   components: {
     BeerCard
   }
+})
+export default class Home extends Vue {
+
+  @beersModule.Action
+  public fetchBeers!: () => void;
+  @beersModule.Getter
+  public indexBeers!: any;
+  mounted(): void {
+    this.fetchBeers();
+    console.log(this.indexBeers)
+  }
+  public sortBy(prop: any): void {
+      this.indexBeers.sort((a: any, b: any) => (a[prop] < b[prop] ? -1 : 1));
+      console.log(this.indexBeers);
+    }
 };
 </script>
 

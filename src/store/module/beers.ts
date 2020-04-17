@@ -36,7 +36,7 @@ class Beers extends VuexModule {
     }
 
     // Mutations
-    @Mutation
+        @Mutation
         public setBeers(beers: Array<any>): void {
             this.beers = beers
         }
@@ -77,7 +77,7 @@ class Beers extends VuexModule {
         public async fetchBeers(): Promise<void> {
             this.context.commit("setLoadingTrue");
             const response = await axios
-              .get("https://api.punkapi.com/v2/beers?page=10")
+              .get("https://api.punkapi.com/v2/beers?per_page=10")
       
               .then(response => response);
 
