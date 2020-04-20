@@ -54,7 +54,7 @@ export default class BeerCard extends Vue {
   @beersModule.Action
   public fetchRelated!: () => void;
 
-  public async fetchData(props: any): Promise<void> {
+  public async fetchData(props: number): Promise<void> {
     await this.fetchBeer(props);
     await this.fetchRelated(props);
   }
