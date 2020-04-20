@@ -47,9 +47,9 @@ export default class BeerDetails extends Vue {
   @beersModule.Action
   public fetchRelated!: () => void;
   @beersModule.Getter
-  public indexDetailsBeer!: any;
+  public indexDetailsBeer!: object;
   @beersModule.Getter
-  public indexRelatedBeers!: any;
+  public indexRelatedBeers!: Array<object>;
 
   async mounted(): Promise<void> {
     const id = window.location.href.split("/").pop();

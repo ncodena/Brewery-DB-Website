@@ -53,7 +53,7 @@ export default class CategoriesView extends Vue {
   @beersModule.Action
   public fetchCategories!: () => void;
   @beersModule.Getter
-  public indexCategories!: any;
+  public indexCategories!: Array<object>;
   mounted(): void {
     this.fetchCategories();
   }

@@ -27,7 +27,7 @@ export default class Home extends Vue {
   @beersModule.Action
   public fetchBeers!: () => void;
   @beersModule.Getter
-  public indexBeers!: any;
+  public indexBeers!: Array<object>;
   mounted(): void {
     this.fetchBeers();
     console.log(this.indexBeers);

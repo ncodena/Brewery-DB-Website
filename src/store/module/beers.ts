@@ -5,32 +5,32 @@ import axios from "axios";
 class Beers extends VuexModule {
   // State
 
-  public beers: Array<any> = [];
+  public beers: Array<object>= [];
   public beer: object = {};
-  public relatedBeers: Array<any> = [];
+  public relatedBeers: Array<object> = [];
   public randomBeer: object = {};
-  public categoriesBeers: Array<any> = [];
-  public beersByCategory: Array<any> = [];
+  public categoriesBeers: Array<object> = [];
+  public beersByCategory: Array<object> = [];
   public isLoading = false;
 
   // Getters
 
-  get indexBeers(): any {
+  get indexBeers(): Array<object> {
     return this.beers;
   }
-  get indexDetailsBeer(): any {
+  get indexDetailsBeer(): object {
     return this.beer;
   }
-  get indexRelatedBeers(): any {
+  get indexRelatedBeers(): Array<object> {
     return this.relatedBeers;
   }
   get indexRandomBeer(): any {
     return this.randomBeer;
   }
-  get indexCategories(): any {
+  get indexCategories(): Array<object> {
     return this.categoriesBeers;
   }
-  get indexBeersByCategory(): any {
+  get indexBeersByCategory(): Array<object> {
     return this.beersByCategory;
   }
 

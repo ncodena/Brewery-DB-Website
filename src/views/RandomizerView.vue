@@ -20,7 +20,7 @@ export default class RandomizerView extends Vue {
   @beersModule.Action
   public fetchRandomBeer!: () => void;
   @beersModule.Getter
-  public indexRandomBeer!: any;
+  public indexRandomBeer!: Array<object>;
   mounted(): void {
     this.fetchRandomBeer();
   }
