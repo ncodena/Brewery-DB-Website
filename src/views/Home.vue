@@ -32,8 +32,8 @@ export default class Home extends Vue {
     this.fetchBeers();
     console.log(this.indexBeers);
   }
-  public sortBy(prop: any): void {
-    this.indexBeers.sort((a: any, b: any) => (a[prop] < b[prop] ? -1 : 1));
+  public sortBy(prop: string | number): void {
+    this.indexBeers.sort((a, b) => (a[prop] < b[prop] ? -1 : 1));
     console.log(this.indexBeers);
   }
 }
