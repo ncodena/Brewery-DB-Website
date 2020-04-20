@@ -127,7 +127,7 @@ class Beers extends VuexModule {
     }
 
     this.context.commit("setRelatedBeers", fethcRandomItems(filteredData));
-    // this.context.commit("setLoadingFalse");
+    this.context.commit("setLoadingFalse");
   }
 
   @Action

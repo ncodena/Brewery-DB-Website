@@ -1,7 +1,12 @@
 <template>
   <div class="beerDetails">
     <div v-if="isLoading"></div>
-    <Details v-else v-for="beer in indexDetailsBeer" :beer="beer" :key="beer.id" />
+    <Details
+      v-else
+      v-for="beer in indexDetailsBeer"
+      :beer="beer"
+      :key="beer.id"
+    />
     <div v-if="isLoading"></div>
     <div v-else class="recommendations">
       <h2>Similar</h2>
@@ -51,7 +56,7 @@ export default class BeerDetails extends Vue {
     await this.fetchBeer(id);
     await this.fetchRelated(id);
   }
-};
+}
 </script>
 
 <style scoped lang="scss">

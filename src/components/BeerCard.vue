@@ -48,17 +48,17 @@ const beersModule = namespace("Beers");
     beer: Object
   }
 })
-export default  class BeerCard extends Vue {
+export default class BeerCard extends Vue {
   @beersModule.Action
   public fetchBeer!: () => void;
   @beersModule.Action
   public fetchRelated!: () => void;
 
-    public async fetchData(props: any): Promise<void> {
-      await this.fetchBeer();
-      await this.fetchRelated();
-    }
+  public async fetchData(props: any): Promise<void> {
+    await this.fetchBeer(props);
+    await this.fetchRelated(props);
   }
+}
 </script>
 
 <style scoped lang="scss">
