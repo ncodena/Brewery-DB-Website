@@ -5,7 +5,7 @@ import axios from "axios";
 class Beers extends VuexModule {
   // State
 
-  public beers: Array<object>= [];
+  public beers: Array<object> = [];
   public beer: object = {};
   public relatedBeers: Array<object> = [];
   public randomBeer: object = {};
