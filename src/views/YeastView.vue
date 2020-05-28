@@ -41,13 +41,13 @@ const beersModule = namespace("Beers");
 })
 export default class YeastView extends Vue {
   public search = "";
-  public YeastString = window.location.href
+  public YeastString: string = window.location.href
     .split("/")
     .pop()
     .split("20")
     .join("")
     .split("%")
-    .join(" ")
+    .join("")
     .split("A2")
     .join("")
     .split("84")
@@ -60,10 +60,10 @@ export default class YeastView extends Vue {
   @beersModule.Getter
   public indexBeersByCategory!: Array<object>;
   mounted(): void {
-    const yeast: string | undefined = window.location.href.split("/").pop();
+    const yeast: string = window.location.href.split("/").pop();
     this.fetchBeersCategory(yeast);
   }
-  public sortBy(prop: void) {
+  public sortBy(prop: number | string) {
     this.indexBeersByCategory.sort((a, b) => (a[prop] < b[prop] ? -1 : 1))
     // console.log(this.indexBeersByCategory)
   }
