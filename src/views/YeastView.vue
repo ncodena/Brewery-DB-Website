@@ -62,13 +62,11 @@ export default class YeastView extends Vue {
     const yeast: string = window.location.href.split("/").pop() || "";
     this.fetchBeersCategory(yeast);
   }
-  public sortBy(prop: number | string) {
+  public sortBy(prop: never) {
     this.indexBeersByCategory.sort((a, b) => (a[prop] < b[prop] ? -1 : 1));
-    // console.log(typeof this.YeastString)
-    // console.log(this.indexBeersByCategory)
   }
 
-  get filteredData(): void {
+  get filteredData(): object[] {
     return this.indexBeersByCategory.filter(beer => {
       return beer.name.toLowerCase().startsWith(this.search);
     });
