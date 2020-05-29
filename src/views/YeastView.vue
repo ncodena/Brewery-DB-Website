@@ -6,7 +6,7 @@
       >
     </div>
     <div class="sortContainer">
-      <h2 class="title">{{ this.YeastString }}</h2>
+      <h2 class="title">{{ this.newString }}</h2>
       <div class="sortGroup">
         <h4>Sort by:</h4>
         <b-button @click="sortBy('name')">Name</b-button>
@@ -41,19 +41,18 @@ const beersModule = namespace("Beers");
 })
 export default class YeastView extends Vue {
   public search = "";
-  public YeastString = window.location.href
-    .split("/")
-    .pop()
+  public yeastString: string = window.location.href.split("/").pop() || "";
+  public newString: string = this.yeastString
     .split("20")
-    .join("")
+    .join(" ")
     .split("%")
-    .join("")
+    .join(" ")
     .split("A2")
-    .join("")
+    .join(" ")
     .split("84")
-    .join("")
+    .join(" ")
     .split("E2")
-    .join("");
+    .join(" ");
 
   @beersModule.Action
   public fetchBeersCategory!: (yeast: string) => void;
@@ -64,7 +63,7 @@ export default class YeastView extends Vue {
     this.fetchBeersCategory(yeast);
   }
   public sortBy(prop: number | string) {
-    this.indexBeersByCategory.sort((a, b) => (a[prop] < b[prop] ? -1 : 1))
+    this.indexBeersByCategory.sort((a, b) => (a[prop] < b[prop] ? -1 : 1));
     // console.log(typeof this.YeastString)
     // console.log(this.indexBeersByCategory)
   }
