@@ -66,7 +66,7 @@ export default class YeastView extends Vue {
     this.indexBeersByCategory.sort((a, b) => (a[prop] < b[prop] ? -1 : 1));
   }
 
-  get filteredData(): object[] {
+  get filteredData(): Array<object> {
     return this.indexBeersByCategory.filter(beer => {
       return beer.name.toLowerCase().startsWith(this.search);
     });
