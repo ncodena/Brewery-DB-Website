@@ -24,7 +24,7 @@ class Beers extends VuexModule {
   get indexRelatedBeers(): Array<object> {
     return this.relatedBeers;
   }
-  get indexRandomBeer(): any {
+  get indexRandomBeer(): object {
     return this.randomBeer;
   }
   get indexCategories(): Array<object> {
@@ -36,7 +36,7 @@ class Beers extends VuexModule {
 
   // Mutations
   @Mutation
-  public setBeers(beers: Array<any>): void {
+  public setBeers(beers: Array<object>): void {
     this.beers = beers;
   }
 
@@ -45,7 +45,7 @@ class Beers extends VuexModule {
     this.beer = beer;
   }
   @Mutation
-  public setRelatedBeers(relatedBeers: Array<any>): void {
+  public setRelatedBeers(relatedBeers: Array<object>): void {
     this.relatedBeers = relatedBeers;
   }
   @Mutation

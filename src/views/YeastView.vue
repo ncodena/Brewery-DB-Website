@@ -67,7 +67,7 @@ export default class YeastView extends Vue {
   }
 
   get filteredData(): Array<object> {
-    return this.indexBeersByCategory.filter(beer => {
+    return this.indexBeersByCategory.filter((beer: any) => {
       return beer.name.toLowerCase().startsWith(this.search);
     });
   }
