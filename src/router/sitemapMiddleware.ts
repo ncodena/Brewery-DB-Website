@@ -1,3 +1,3 @@
 import VueRouterSitemap from 'vue-router-sitemap';
-import path from 'path';
+const path = require('path');
 import router     from './index';
