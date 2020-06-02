@@ -153,10 +153,10 @@ class Beers extends VuexModule {
       .then(response => response);
     console.log("from store", response.data);
     const filteredData = Array.from(
-      new Set(response.data.map(yeast => yeast.ingredients.yeast))
+      new Set(response.data.map((yeast: any) => yeast.ingredients.yeast))
     ).map(ingredients => {
       return response.data.find(
-        yeast => yeast.ingredients.yeast === ingredients
+        (yeast: any) => yeast.ingredients.yeast === ingredients
       );
     });
 
