@@ -50,13 +50,13 @@ const beersModule = namespace("Beers");
 })
 export default class BeerCard extends Vue {
   @beersModule.Action
-  public fetchBeer!: () => void;
+  public fetchBeer!: (id: number) => void;
   @beersModule.Action
-  public fetchRelated!: () => void;
+  public fetchRelated!: (id: number) => void;
 
-  public async fetchData(props: number): Promise<void> {
-    await this.fetchBeer(props);
-    await this.fetchRelated(props);
+  public async fetchData(id: number): Promise<void> {
+    await this.fetchBeer(id);
+    await this.fetchRelated(id);
   }
 }
 </script>
