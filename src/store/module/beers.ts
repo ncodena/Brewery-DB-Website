@@ -53,12 +53,12 @@ class Beers extends VuexModule {
     this.randomBeer = randomBeer;
   }
   @Mutation
-  public setCategories(categoriesBeers: Array<any>): void {
+  public setCategories(categoriesBeers: Array<object>): void {
     this.categoriesBeers = categoriesBeers;
   }
 
   @Mutation
-  public setBeersByCategory(beersByCategory: Array<any>): void {
+  public setBeersByCategory(beersByCategory: Array<object>): void {
     this.beersByCategory = beersByCategory;
   }
   @Mutation
@@ -108,11 +108,12 @@ class Beers extends VuexModule {
       })
       .then(response => response);
 
+    // eslint-disable-next-line
     const filteredData = response.data.filter(function(beer: any, id: number) {
       return beer.id != id;
     });
 
-    function fethcRandomItems(filteredData: Array<any>) {
+    function fethcRandomItems(filteredData: Array<object>) {
       const newArray = [];
 
       for (let i = 0; i < 3; i++) {
@@ -153,9 +154,11 @@ class Beers extends VuexModule {
       .then(response => response);
     console.log("from store", response.data);
     const filteredData = Array.from(
+      // eslint-disable-next-line
       new Set(response.data.map((yeast: any) => yeast.ingredients.yeast))
     ).map(ingredients => {
       return response.data.find(
+        // eslint-disable-next-line
         (yeast: any) => yeast.ingredients.yeast === ingredients
       );
     });
