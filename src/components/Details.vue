@@ -80,7 +80,7 @@
             <span
               v-for="malt in beer.ingredients.malt"
               :malt="malt"
-              :key="malt.name"
+              :key="malt.id"
             >
               <p class="feature">{{ malt.name }}</p>
             </span>
@@ -96,7 +96,7 @@
             <span
               v-for="hop in beer.ingredients.hops"
               :hop="hop"
-              :key="hop.name"
+              :key="hop.id"
             >
               <p class="feature">{{ hop.name }}</p>
             </span>

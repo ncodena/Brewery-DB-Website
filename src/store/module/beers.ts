@@ -109,11 +109,9 @@ class Beers extends VuexModule {
       .then(response => response);
 
     // eslint-disable-next-line
-    const filteredData = response.data.filter(function(beer: any, id: number) {
-      return beer.id != id;
-    });
+    const filteredData = response.data;
 
-    function fethcRandomItems(filteredData: Array<object>) {
+    function fetchRandomItems(filteredData: Array<object>) {
       const newArray = [];
 
       for (let i = 0; i < 3; i++) {
@@ -121,13 +119,16 @@ class Beers extends VuexModule {
 
         if (newArray.indexOf(random) == -1) {
           newArray.push(random);
-        }
+        } 
       }
 
       return newArray;
+
     }
 
-    this.context.commit("setRelatedBeers", fethcRandomItems(filteredData));
+   
+
+    this.context.commit("setRelatedBeers", fetchRandomItems(filteredData));
     this.context.commit("setLoadingFalse");
   }
 
