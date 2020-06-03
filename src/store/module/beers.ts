@@ -150,7 +150,6 @@ class Beers extends VuexModule {
       .get("https://api.punkapi.com/v2/beers?per_page=80")
 
       .then(response => response);
-    console.log("from store", response.data);
     const filteredData = Array.from(
       // eslint-disable-next-line
       new Set(response.data.map((yeast: any) => yeast.ingredients.yeast))
@@ -160,8 +159,6 @@ class Beers extends VuexModule {
         (yeast: any) => yeast.ingredients.yeast === ingredients
       );
     });
-
-    console.log(filteredData);
 
     this.context.commit("setCategories", filteredData);
     this.context.commit("setLoadingFalse");

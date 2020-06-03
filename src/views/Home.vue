@@ -30,11 +30,9 @@ export default class Home extends Vue {
   public indexBeers!: Array<object>;
   mounted(): void {
     this.fetchBeers();
-    console.log(this.indexBeers);
   }
   public sortBy(prop: never): void {
     this.indexBeers.sort((a, b) => (a[prop] < b[prop] ? -1 : 1));
-    console.log(this.indexBeers);
   }
 }
 </script>
