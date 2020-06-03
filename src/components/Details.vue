@@ -93,11 +93,7 @@
           <i class="fas fa-seedling fa-2x"></i>
           <h4>Hops</h4>
           <div class="wrap-features">
-            <span
-              v-for="hop in beer.ingredients.hops"
-              :hop="hop"
-              :key="hop.id"
-            >
+            <span v-for="hop in beer.ingredients.hops" :hop="hop" :key="hop.id">
               <p class="feature">{{ hop.name }}</p>
             </span>
           </div>

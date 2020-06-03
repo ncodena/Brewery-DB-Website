@@ -119,14 +119,11 @@ class Beers extends VuexModule {
 
         if (newArray.indexOf(random) == -1) {
           newArray.push(random);
-        } 
+        }
       }
 
       return newArray;
-
     }
-
-   
 
     this.context.commit("setRelatedBeers", fetchRandomItems(filteredData));
     this.context.commit("setLoadingFalse");
