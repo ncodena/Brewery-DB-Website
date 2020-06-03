@@ -67,6 +67,7 @@ export default class YeastView extends Vue {
   }
 
   get filteredData(): Array<object> {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return this.indexBeersByCategory.filter((beer: any) => {
       return beer.name.toLowerCase().startsWith(this.search);
     });

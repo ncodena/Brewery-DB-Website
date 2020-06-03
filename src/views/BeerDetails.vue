@@ -9,7 +9,7 @@
     />
     <div v-if="isLoading"></div>
     <div v-else class="recommendations">
-      <h2>Similar</h2>
+      <h2>People also viewed</h2>
       <div class="beersList">
         <beer-card
           v-for="beer in indexRelatedBeers"
