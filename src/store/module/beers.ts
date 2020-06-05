@@ -114,11 +114,15 @@ class Beers extends VuexModule {
     function fetchRandomItems(filteredData: Array<object>) {
       const newArray = [];
 
-      for (let i = 0; i < 3; i++) {
+      for (let i = 0; i < filteredData.length; i++) {
         const random = filteredData[Math.floor(Math.random() * 30)];
 
         if (newArray.indexOf(random) == -1) {
           newArray.push(random);
+        }
+
+        if(newArray.length == 3){
+          break
         }
       }
 

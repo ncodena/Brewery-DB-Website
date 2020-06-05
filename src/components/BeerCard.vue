@@ -1,5 +1,5 @@
 <template>
-  <section class="intro" :key="beer.id">
+  <section class="intro">
     <div class="container">
       <img
         v-if="beer.image_url"
@@ -69,7 +69,7 @@ export default class BeerCard extends Vue {
   grid-template-columns: repeat(2, 1fr);
   padding: 3rem;
   margin: 20px 20px 20px 20px;
-  min-height: 70vh;
+  max-height: 60vh;
   max-width: 27%;
   min-width: 27%;
   position: relative;
@@ -77,7 +77,7 @@ export default class BeerCard extends Vue {
 
 .beerImage {
   max-width: 80px;
-  min-height: 40%;
+  min-height: 30%;
 }
 .defaultImage {
   max-width: 200%;
@@ -128,6 +128,7 @@ h3 {
   justify-content: center;
   align-items: center;
   width: 100%;
+  max-height: 60vh;
   background-color: black;
   color: white;
   border: 3px solid white;
