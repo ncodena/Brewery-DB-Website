@@ -118,13 +118,24 @@ class Beers extends VuexModule {
         const random = filteredData[Math.floor(Math.random() * 30)];
 
         if (newArray.indexOf(random) == -1) {
-          newArray.push(random);
+          newArray.push(random) 
         }
+        
+        // if (filteredData.length <= 3)  {
+        //   return  newArray.push(filteredData) && console.log(newArray.length)
+        //   }
 
         if(newArray.length == 3){
           break
+        } else if (newArray.length < 8) {
+          console.log(newArray.length)
         }
-      }
+
+        
+      // } else if(newArray.length < 3){
+      //   return newArray.push(random)
+      // }
+    }
 
       return newArray;
     }
