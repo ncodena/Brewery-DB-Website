@@ -120,24 +120,37 @@ class Beers extends VuexModule {
         if (newArray.indexOf(random) == -1) {
           newArray.push(random) 
         }
-        
+
         if (filteredData.length <= 3)  {
           return  newArray.push(filteredData) && console.log(newArray.length) 
           } else {
             newArray
           }
+        
+        // if (filteredData.length < 3)  {
+        //   return  newArray.push(filteredData)
+        // } 
 
         // if(newArray.length == 3){
         //   break
         // } else if (newArray.length < 3) {
-        //   return newArray
+        //   newArray
         // }
 
+      
 
-        
-      // } else if(newArray.length < 3){
-      //   return newArray.push(random)
-      // }
+        // if(newArray.length == 3){
+        //   return match = true && console.log('hi from true');
+
+        // } 
+    
+
+        // if (match) {
+        //   break
+        // } else {
+        //   newArray && console.log('hi from false')
+        // }
+
     }
 
       return newArray;
