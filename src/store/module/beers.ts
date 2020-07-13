@@ -131,11 +131,11 @@ class Beers extends VuexModule {
         //   return  newArray.push(filteredData)
         // } 
 
-        // if(newArray.length == 3){
-        //   break
-        // } else if (newArray.length < 3) {
-        //   newArray
-        // }
+        if(newArray.length == 3){
+          break
+        } else if (newArray.length < 3) {
+          newArray
+        }
 
       
 
