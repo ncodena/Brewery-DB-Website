@@ -107,7 +107,7 @@ h6 {
 }
 
 h3 {
-  font-size: 1.55rem;
+  font-size: 1.25rem;
 }
 
 .overlay {
@@ -118,7 +118,7 @@ h3 {
   right: 0;
   opacity: 0;
   transition: 0.5s ease;
-  min-height: 66vh;
+  min-height: 35vh;
   max-width: 100%;
   display: flex;
 }
