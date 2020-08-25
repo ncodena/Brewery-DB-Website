@@ -76,7 +76,7 @@ export default class BeerCard extends Vue {
 }
 
 .beerImage {
-  max-width: 80px;
+  max-width: 60px;
   min-height: 30%;
 }
 .defaultImage {
