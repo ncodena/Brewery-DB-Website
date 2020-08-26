@@ -16,7 +16,7 @@
     </div>
     <div class="container">
       <div class="details">
-        <h6 class="info">
+        <h6 class="info name">
           <strong>{{ beer.name }}</strong>
         </h6>
         <h6 class="info">{{ beer.first_brewed }}</h6>
@@ -95,12 +95,10 @@ export default class BeerCard extends Vue {
 .container {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
 }
 
 h6 {
-  width: 180%;
   display: flex;
   justify-content: center;
   font-size: 1em;
@@ -110,6 +108,14 @@ h6 {
 
 h3 {
   font-size: 1.25rem;
+}
+
+.name {
+  display: flex;
+  justify-content: center;
+  font-size: 1.2em;
+  align-content: center;
+  width: 100%;
 }
 
 .overlay {
