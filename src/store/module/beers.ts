@@ -103,7 +103,7 @@ class Beers extends VuexModule {
       .then(async response => {
         const yeast = response.data[0].ingredients.yeast;
         return await axios.get(
-          `https://api.punkapi.com/v2/beers?per_page=30&yeast=${yeast}`
+          `https://api.punkapi.com/v2/beers?per_page=3&yeast=${yeast}`
         );
       })
       .then(response => response);
@@ -111,21 +111,21 @@ class Beers extends VuexModule {
     // eslint-disable-next-line
     const filteredData = response.data;
 
-    function fetchRandomItems(filteredData: Array<object>) {
-      const newArray = [];
+    // function fetchRandomItems(filteredData: Array<object>) {
+    //   const newArray = [];
 
-      for (let i = 0; i < filteredData.length; i++) {
-        const random = filteredData[Math.floor(Math.random() * 30)];
+    //   for (let i = 0; i < filteredData.length; i++) {
+    //     const random = filteredData[Math.floor(Math.random() * 30)];
 
-        if (newArray.indexOf(random) == -1) {
-          newArray.push(random) 
-        }
+    //     if (newArray.indexOf(random) == -1) {
+    //       newArray.push(random) 
+    //     }
 
-        if (filteredData.length <= 3)  {
-          return  newArray.push(filteredData) && console.log(newArray.length) 
-          } else {
-            newArray
-          }
+    //     if (filteredData.length <= 3)  {
+    //       return  newArray.push(filteredData) && console.log(newArray.length) 
+    //       } else {
+    //         newArray
+    //       }
         
         // if (filteredData.length < 3)  {
         //   return  newArray.push(filteredData)
@@ -136,8 +136,6 @@ class Beers extends VuexModule {
         // } else if (newArray.length < 3) {
         //   newArray
         // }
-
-      
 
         // if(newArray.length == 3){
         //   return match = true && console.log('hi from true');
@@ -151,12 +149,12 @@ class Beers extends VuexModule {
         //   newArray && console.log('hi from false')
         // }
 
-    }
+    // }
 
-      return newArray;
-    }
+    //   return newArray;
+    // }
 
-    this.context.commit("setRelatedBeers", fetchRandomItems(filteredData));
+    this.context.commit("setRelatedBeers", filteredData);
     this.context.commit("setLoadingFalse");
   }
 
