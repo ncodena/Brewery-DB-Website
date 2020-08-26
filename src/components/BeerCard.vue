@@ -15,11 +15,13 @@
       />
     </div>
     <div class="container">
-      <h6 class="info">
-        <strong>{{ beer.name }}</strong>
-      </h6>
-      <h6 class="info">{{ beer.first_brewed }}</h6>
-      <h6 class="info">{{ beer.abv }}%</h6>
+      <div class="details">
+        <h6 class="info">
+          <strong>{{ beer.name }}</strong>
+        </h6>
+        <h6 class="info">{{ beer.first_brewed }}</h6>
+        <h6 class="info">{{ beer.abv }}%</h6>
+      </div>
     </div>
 
     <div class="overlay">
@@ -70,8 +72,8 @@ export default class BeerCard extends Vue {
   padding: 3rem;
   margin: 20px 20px 20px 20px;
   max-height: 60vh;
-  max-width: 27%;
-  min-width: 27%;
+  max-width: 20%;
+  min-width: 20%;
   position: relative;
 }
 
@@ -136,14 +138,25 @@ h3 {
 
 // Media Queries
 
+@media (max-width: 1280px){
+  .intro {
+    max-width: 44%;
+    min-width: 44%;
+    max-height: 36vh;
+    min-height: 36vh;
+
+  }
+
+}
+
 @media (max-width: 700px) {
   .intro {
     grid-template-columns: 1fr;
-    min-width: 90%;
-    min-height: 55vh;
+    min-width: 80%;
+    min-height: 60vh;
   }
   .beerImage {
-    max-width: 55px;
+    max-width: 50px;
     min-height: 30%;
   }
   .defaultImage {
@@ -160,6 +173,14 @@ h3 {
   }
   .overlay {
     min-height: 43vh;
+  }
+
+  .details {
+    width: 160%;
+  }
+
+  .details h6 {
+    font-size: 1em;
   }
 }
 </style>
