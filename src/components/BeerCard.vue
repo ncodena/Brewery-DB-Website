@@ -176,7 +176,7 @@ h3 {
   }
 
   .details {
-    width: 160%;
+    width: 150%;
   }
 
   .details h6 {

@@ -170,6 +170,10 @@ h6 {
   font-size: 20px;
   text-align: justify;
 }
+
+.description h6 {
+  font-weight: bold;
+}
 .imageContainer {
   display: flex;
   flex-direction: column;
