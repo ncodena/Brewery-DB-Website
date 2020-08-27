@@ -128,5 +128,9 @@ a {
     flex-direction: column;
     justify-content: center;
   }
+
+  h2{
+    font-size: 2rem;
+  }
 }
 </style>
