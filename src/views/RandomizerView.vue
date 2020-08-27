@@ -33,6 +33,7 @@ export default class RandomizerView extends Vue {
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 326px;
 }
 
 .text {

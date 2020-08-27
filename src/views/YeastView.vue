@@ -108,13 +108,14 @@ export default class YeastView extends Vue {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  padding-top: 326px;
+  padding-top: 100px;
   padding-bottom: 326px;
 }
 .beersList {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  padding-bottom: 167px;
 }
 
 h1 {
@@ -134,10 +135,9 @@ p {
     width: 50%;
   }
 
-  .messageContainer {
-    padding-top: 132px;
-    padding-bottom: 132px;
-  }
+  // .messageContainer {
+  //   padding-bottom: 326px;
+  // }
 
   h2{
     font-size: 1.5rem;
