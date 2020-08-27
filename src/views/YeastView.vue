@@ -1,13 +1,11 @@
 <template>
   <div class="mainContainer">
-    <div class="buttonConta">
-      <router-link to="/beers/categories"
-        ><b-button>Back to Categories</b-button></router-link
-      >
-    </div>
+    
     <div class="sortContainer">
       <h2 class="title">{{ this.newString }}</h2>
       <div class="sortGroup">
+        <router-link to="/beers/categories"
+        ><b-button>Back to Categories</b-button></router-link>
         <h4>Sort by:</h4>
         <b-button @click="sortBy('name')">Name</b-button>
         <b-button @click="sortBy('abv')">Alcohol Volume</b-button>
@@ -104,11 +102,6 @@ export default class YeastView extends Vue {
 .inputGroup {
   padding-top: 30px;
 }
-
-.buttonContainer {
-  margin-left: 18px;
-  padding-bottom: 10px;
-}
 .messageContainer {
   width: 100%;
   display: flex;
@@ -144,6 +137,14 @@ p {
   .messageContainer {
     padding-top: 132px;
     padding-bottom: 132px;
+  }
+
+  h2{
+    font-size: 1.5rem;
+  }
+
+  h4 {
+    font-size: 1.2rem;
   }
 }
 </style>
