@@ -84,10 +84,10 @@ export default class BeerCard extends Vue {
   min-height: 30%;
 }
 .defaultImage {
-  max-width: 100%;
-  min-width: 106%;
-  max-height: 129px;
-  min-height: 129px;
+    max-width: 250%;
+    min-width: 100%;
+    max-height: 243px;
+    min-height: 193px;
 }
 .intro:hover .container {
   opacity: 0.2;
@@ -176,7 +176,9 @@ h3 {
   }
   .defaultImage {
     max-width: 60%;
-    min-height: 40%;
+    min-width: 60%;
+    min-height: 18vh;
+    max-height: 18vh;
   }
   .info {
     font-size: 1.3rem;
