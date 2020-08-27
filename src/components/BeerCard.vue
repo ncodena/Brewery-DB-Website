@@ -147,6 +147,10 @@ h3 {
   border: 3px solid white;
 }
 
+.card-text{
+  text-align: center;
+}
+
 
 // Media Queries
 

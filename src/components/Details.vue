@@ -166,6 +166,9 @@ h2 {
 h6 {
   color: white;
 }
+h4{
+  text-align: center;
+}
 .info {
   font-size: 20px;
   text-align: justify;
@@ -287,5 +290,9 @@ h6 {
   .sheet {
     grid-template-columns: 1fr;
   }
+  h2, .h2 {
+    font-size: 1.5rem;
+  }
+  
 }
 </style>
