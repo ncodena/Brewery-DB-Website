@@ -71,10 +71,12 @@ export default class BeerCard extends Vue {
   grid-template-columns: repeat(2, 1fr);
   padding: 3rem;
   margin: 20px 20px 20px 20px;
-  max-height: 60vh;
+  max-height: 43vh;
+  min-height: 43vh;
   max-width: 20%;
   min-width: 20%;
   position: relative;
+  
 }
 
 .beerImage {
@@ -82,8 +84,10 @@ export default class BeerCard extends Vue {
   min-height: 30%;
 }
 .defaultImage {
-  max-width: 200%;
-  min-height: 63%;
+  max-width: 100%;
+  min-width: 106%;
+  max-height: 129px;
+  min-height: 129px;
 }
 .intro:hover .container {
   opacity: 0.2;
@@ -96,6 +100,7 @@ export default class BeerCard extends Vue {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 h6 {
@@ -142,6 +147,7 @@ h3 {
   border: 3px solid white;
 }
 
+
 // Media Queries
 
 @media (max-width: 1280px){
@@ -158,8 +164,11 @@ h3 {
 @media (max-width: 700px) {
   .intro {
     grid-template-columns: 1fr;
-    min-width: 80%;
-    min-height: 60vh;
+    min-width: 70%;
+    max-width: 70%;
+    min-height: 57vh;
+    max-height: 57vh;
+    
   }
   .beerImage {
     max-width: 50px;
