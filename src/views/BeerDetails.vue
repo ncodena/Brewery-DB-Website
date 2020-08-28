@@ -53,9 +53,7 @@ export default class BeerDetails extends Vue {
 
   async mounted(): Promise<void> {
     const id: string = window.location.href.split("/").pop() || "";
-    console.log(id);
-    console.log(this.indexDetailsBeer);
-    console.log(this.indexRelatedBeers);
+    
     await this.fetchBeer(id);
     await this.fetchRelated(id);
   }
