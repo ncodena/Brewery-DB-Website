@@ -120,6 +120,7 @@ h3 {
   justify-content: center;
   font-size: 1.2em;
   align-content: center;
+  text-align: center;
   width: 100%;
 }
 
