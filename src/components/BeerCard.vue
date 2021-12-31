@@ -159,8 +159,8 @@ h3 {
   .intro {
     max-width: 44%;
     min-width: 44%;
-    max-height: 64vh;
-    min-height: 64vh;
+    max-height: 60vh;
+    min-height: 60vh;
 
   }
 
