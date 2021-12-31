@@ -4,8 +4,10 @@
     <div class="sortContainer">
       <h2 class="title">{{ this.newString }}</h2>
       <div class="sortGroup">
+        <div class="returnButton">
         <router-link to="/beers/categories"
         ><b-button>Back to Categories</b-button></router-link>
+        </div>
         <h4>Sort by:</h4>
         <b-button @click="sortBy('name')">Name</b-button>
         <b-button @click="sortBy('abv')">Alcohol Volume</b-button>

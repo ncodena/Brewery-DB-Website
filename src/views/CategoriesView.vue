@@ -65,6 +65,7 @@ export default class CategoriesView extends Vue {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  padding-bottom: 167px;
 }
 
 .intro {

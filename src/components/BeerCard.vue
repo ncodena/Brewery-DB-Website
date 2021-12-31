@@ -159,8 +159,8 @@ h3 {
   .intro {
     max-width: 44%;
     min-width: 44%;
-    max-height: 36vh;
-    min-height: 36vh;
+    max-height: 64vh;
+    min-height: 64vh;
 
   }
 
@@ -192,6 +192,7 @@ h3 {
     align-items: center;
     flex-direction: column;
     width: 100%;
+    text-align: center;
   }
   .overlay {
     min-height: 43vh;
